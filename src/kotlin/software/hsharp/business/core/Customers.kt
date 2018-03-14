@@ -1,5 +1,6 @@
 package software.hsharp.business.core
 
+import org.compiere.model.MBPartner
 import org.idempiere.common.util.DB
 import org.idempiere.common.util.Env
 import org.jetbrains.exposed.dao.EntityID
@@ -68,21 +69,58 @@ class Customers : ICustomers {
         Database.connect( { DB.getConnectionRO() } )
         transaction {
             result =
-                CustomerModel.find{ (c_bpartner.ad_client_id eq AD_Client_ID)
-                        .and( c_bpartner.ad_org_id eq AD_Org_ID )
-                        .and( c_bpartner.iscustomer eq "Y" )
-                }.map { Customer( it.id.value, it.name, it.categories.map { Category( it.category_Id.value, it.name ) as ICategory }.toTypedArray() ) }
+                CustomerModel.find {
+                    (c_bpartner.ad_client_id eq AD_Client_ID)
+                            .and(c_bpartner.ad_org_id eq AD_Org_ID)
+                            .and(c_bpartner.iscustomer eq "Y")
+                }.map {
+                    Customer( it.id.value, it.name, it.categories.map { Category( it.category_Id.value, it.name ) as ICategory }.toTypedArray() )
+                }.filter { MBPartner.get(ctx, it.id) != null }
         }
 
         return result.toTypedArray()
     }
 
-    override fun getCustomerById(id: Int): ICustomer {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    override fun getCustomerById(id: Int): ICustomer? {
+        val ctx = Env.getCtx()
+        val AD_Org_ID = Env.getAD_Org_ID(ctx)
+        val AD_Client_ID = Env.getAD_Client_ID(ctx)
+        var result : ICustomer? = null
+
+        Database.connect( { DB.getConnectionRO() } )
+        transaction {
+            result =
+                    CustomerModel.find{ (c_bpartner.ad_client_id eq AD_Client_ID)
+                            .and( c_bpartner.ad_org_id eq AD_Org_ID )
+                            .and( c_bpartner.iscustomer eq "Y" )
+                            .and( c_bpartner.id eq id )
+                    }
+                    .map {
+                        Customer( it.id.value, it.name, it.categories.map { Category( it.category_Id.value, it.name ) as ICategory }.toTypedArray() )
+                    }.firstOrNull { MBPartner.get(ctx, it.id) != null }
+        }
+        return result
     }
 
     override fun getCustomersByAnyCategory(categories: Array<ICategory>): Array<ICustomer> {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        val ctx = Env.getCtx()
+        val AD_Org_ID = Env.getAD_Org_ID(ctx)
+        val AD_Client_ID = Env.getAD_Client_ID(ctx)
+        var result = listOf<ICustomer>()
+
+        Database.connect( { DB.getConnectionRO() } )
+        transaction {
+            result =
+                    CustomerModel.find {
+                        (c_bpartner.ad_client_id eq AD_Client_ID)
+                                .and(c_bpartner.ad_org_id eq AD_Org_ID)
+                                .and(c_bpartner.iscustomer eq "Y")
+                    }.map {
+                        Customer( it.id.value, it.name, it.categories.map { Category( it.category_Id.value, it.name ) as ICategory }.toTypedArray() )
+                    }.filter { MBPartner.get(ctx, it.id) != null && it.categories.intersect(categories.toList()).isNotEmpty() }
+        }
+
+        return result.toTypedArray()
     }
 
 }
