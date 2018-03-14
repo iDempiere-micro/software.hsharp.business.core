@@ -2,6 +2,10 @@
 #   SOFTWARE HSHARP BUSINESS CORE
 #
 Bundle-Name: H# iDempiere NG Core
-Import-Package: *
+Bundle-ClassPath: .,exposed-0.10.1.jar
+Import-Package: !org.jetbrains.exposed*,!org.h2.engine*,!org.h2.jdbc*,*
 Export-Package: \
     software.hsharp.business.core*
+-includeresource: \
+    {exposed-0.10.1.jar}
+-dsannotations-options: extender
