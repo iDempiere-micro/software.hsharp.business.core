@@ -1,0 +1,6 @@
+dependencies {
+    compile project(':software.hsharp.business.models')
+    compile files('../software.hsharp.business.models/bin')
+    compile project(':org.adempiere.base')
+    compile files('../org.adempiere.base/bin')
+}

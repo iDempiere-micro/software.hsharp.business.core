@@ -1,0 +1,7 @@
+#
+#   SOFTWARE HSHARP BUSINESS CORE
+#
+Bundle-Name: H# iDempiere NG Core
+Import-Package: *
+Export-Package: \
+    software.hsharp.business.core*
