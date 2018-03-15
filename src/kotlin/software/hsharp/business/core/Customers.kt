@@ -14,7 +14,7 @@ import software.hsharp.business.models.ICategory
 import software.hsharp.business.models.ICustomer
 import software.hsharp.business.services.ICustomers
 
-object customer_category : IntIdTable(columnName = "customer_category_id") {
+object crm_customer_category : IntIdTable(columnName = "customer_category_id") {
     val ad_client_id = integer("ad_client_id")
     val ad_org_id = integer("ad_org_id")
     val isactive = varchar("isactive", 1)
@@ -28,33 +28,33 @@ object customer_category : IntIdTable(columnName = "customer_category_id") {
     val searchKey = varchar("value", 60)
 
     val customer_id = reference("c_bpartner_id", c_bpartner)
-    val category_id = reference("category_id", category)
+    val category_id = reference("category_id", crm_category)
 }
 
 class CustomerCategoryModel(id: EntityID<Int>) : IntEntity(id) {
-    companion object : IntEntityClass<CustomerCategoryModel>(customer_category)
+    companion object : IntEntityClass<CustomerCategoryModel>(crm_customer_category)
 
-    var category_Id by customer_category.id
-    var AD_Client_Id by customer_category.ad_client_id
-    var AD_Org_Id by customer_category.ad_org_id
-    var IsActive by customer_category.isactive
-    var Created by customer_category.created
-    var CreatedBy by customer_category.createdby
-    var Updated by customer_category.updated
-    var UpdatedBy by customer_category.updatedby
-    var customer_category_uu by customer_category.customer_category_uu
-    var name by customer_category.name
-    var customer_id by customer_category.customer_id
-    var category_id by customer_category.category_id
+    var category_Id by crm_customer_category.id
+    var AD_Client_Id by crm_customer_category.ad_client_id
+    var AD_Org_Id by crm_customer_category.ad_org_id
+    var IsActive by crm_customer_category.isactive
+    var Created by crm_customer_category.created
+    var CreatedBy by crm_customer_category.createdby
+    var Updated by crm_customer_category.updated
+    var UpdatedBy by crm_customer_category.updatedby
+    var customer_category_uu by crm_customer_category.customer_category_uu
+    var name by crm_customer_category.name
+    var customer_id by crm_customer_category.customer_id
+    var category_id by crm_customer_category.category_id
 
-    val categories by CategoryModel referencedOn customer_category.category_id
-    val customers by CustomerModel referencedOn customer_category.customer_id
+    val categories by CategoryModel referencedOn crm_customer_category.category_id
+    val customers by CustomerModel referencedOn crm_customer_category.customer_id
 }
 
 class CustomerModel(id: EntityID<Int>) : BusinessPartnerModel(id) {
     companion object : IntEntityClass<CustomerModel>(c_bpartner)
 
-    val categories by CustomerCategoryModel referrersOn customer_category.customer_id
+    val categories by CustomerCategoryModel referrersOn crm_customer_category.customer_id
 }
 
 data class Customer( override val id : Int, override val name : String, override val categories : Array<ICategory> ) : ICustomer

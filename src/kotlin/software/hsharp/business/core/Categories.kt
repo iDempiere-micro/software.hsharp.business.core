@@ -6,7 +6,7 @@ import org.jetbrains.exposed.dao.IntEntityClass
 import org.jetbrains.exposed.dao.IntIdTable
 import software.hsharp.business.models.ICategory
 
-object category : IntIdTable(columnName = "category_id") {
+object crm_category : IntIdTable(columnName = "category_id") {
     val ad_client_id = integer("ad_client_id")
     val ad_org_id = integer("ad_org_id")
     val isactive = varchar("isactive", 1)
@@ -21,19 +21,19 @@ object category : IntIdTable(columnName = "category_id") {
 }
 
 class CategoryModel(id: EntityID<Int>) : IntEntity(id) {
-    companion object : IntEntityClass<CategoryModel>(category)
+    companion object : IntEntityClass<CategoryModel>(crm_category)
 
-    var category_Id by category.id
-    var AD_Client_Id by category.ad_client_id
-    var AD_Org_Id by category.ad_org_id
-    var IsActive by category.isactive
-    var Created by category.created
-    var CreatedBy by category.createdby
-    var Updated by category.updated
-    var UpdatedBy by category.updatedby
-    var category_Uu by category.category_uu
-    var name by category.name
-    var searchKey by category.searchKey
+    var category_Id by crm_category.id
+    var AD_Client_Id by crm_category.ad_client_id
+    var AD_Org_Id by crm_category.ad_org_id
+    var IsActive by crm_category.isactive
+    var Created by crm_category.created
+    var CreatedBy by crm_category.createdby
+    var Updated by crm_category.updated
+    var UpdatedBy by crm_category.updatedby
+    var category_Uu by crm_category.category_uu
+    var name by crm_category.name
+    var searchKey by crm_category.searchKey
 }
 
 data class Category(override val id: Int, override val name : String) : ICategory

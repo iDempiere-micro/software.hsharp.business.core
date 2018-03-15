@@ -112,3 +112,5 @@ generated
 
 #target
 target
+
+**/bin/**
