@@ -12,7 +12,9 @@ import org.jetbrains.exposed.sql.and
 import org.jetbrains.exposed.sql.transactions.transaction
 import software.hsharp.business.models.ICategory
 import software.hsharp.business.models.ICustomer
+import software.hsharp.business.services.ICustomerResult
 import software.hsharp.business.services.ICustomers
+import software.hsharp.business.services.ICustomersResult
 
 object crm_customer_category : IntIdTable(columnName = "customer_category_id") {
     val ad_client_id = integer("ad_client_id")
@@ -58,9 +60,11 @@ class CustomerModel(id: EntityID<Int>) : BusinessPartnerModel(id) {
 }
 
 data class Customer( override val id : Int, override val name : String, override val categories : Array<ICategory> ) : ICustomer
+data class CustomersResult( override val customers : Array<ICustomer> ) : ICustomersResult
+data class CustomerResult( override val customer : ICustomer? ) : ICustomerResult
 
 class Customers : ICustomers {
-    override fun getAllCustomers(): Array<ICustomer> {
+    override fun getAllCustomers(): ICustomersResult {
         val ctx = Env.getCtx()
         val AD_Org_ID = Env.getAD_Org_ID(ctx)
         val AD_Client_ID = Env.getAD_Client_ID(ctx)
@@ -78,10 +82,10 @@ class Customers : ICustomers {
                 }.filter { MBPartner.get(ctx, it.id) != null }
         }
 
-        return result.toTypedArray()
+        return CustomersResult( result.toTypedArray() )
     }
 
-    override fun getCustomerById(id: Int): ICustomer? {
+    override fun getCustomerById(id: Int): ICustomerResult {
         val ctx = Env.getCtx()
         val AD_Org_ID = Env.getAD_Org_ID(ctx)
         val AD_Client_ID = Env.getAD_Client_ID(ctx)
@@ -99,10 +103,10 @@ class Customers : ICustomers {
                         Customer( it.id.value, it.name, it.categories.map { Category( it.category_Id.value, it.name ) as ICategory }.toTypedArray() )
                     }.firstOrNull { MBPartner.get(ctx, it.id) != null }
         }
-        return result
+        return CustomerResult(result)
     }
 
-    override fun getCustomersByAnyCategory(categories: Array<ICategory>): Array<ICustomer> {
+    override fun getCustomersByAnyCategory(categories: Array<ICategory>): ICustomersResult {
         val ctx = Env.getCtx()
         val AD_Org_ID = Env.getAD_Org_ID(ctx)
         val AD_Client_ID = Env.getAD_Client_ID(ctx)
@@ -120,7 +124,7 @@ class Customers : ICustomers {
                     }.filter { MBPartner.get(ctx, it.id) != null && it.categories.intersect(categories.toList()).isNotEmpty() }
         }
 
-        return result.toTypedArray()
+        return CustomersResult( result.toTypedArray() )
     }
 
 }
