@@ -8,7 +8,9 @@ import org.jetbrains.exposed.dao.IntEntity
 import org.jetbrains.exposed.dao.IntEntityClass
 import org.jetbrains.exposed.dao.IntIdTable
 import software.hsharp.business.models.IBusinessPartner
+import software.hsharp.business.services.IBusinessPartnerResult
 import software.hsharp.business.services.IBusinessPartners
+import software.hsharp.business.services.IBusinessPartnersResult
 import java.util.*
 
 object c_bpartner : IntIdTable(columnName = "c_bpartner_id") {
@@ -44,6 +46,8 @@ open class BusinessPartnerModel(id: EntityID<Int>) : IntEntity(id) {
 }
 
 data class BusinessPartner( override val id : Int, override val name : String ) : IBusinessPartner
+data class BusinessPartnersResult( override val businessPartners : Array<IBusinessPartner> ) : IBusinessPartnersResult
+data class BusinessPartnerResult( override val businessPartner : IBusinessPartner? ) : IBusinessPartnerResult
 
 class BusinessPartners : iDempiereEntities<MBPartner, IBusinessPartner>(), IBusinessPartners {
     override val tableName: String
@@ -57,11 +61,11 @@ class BusinessPartners : iDempiereEntities<MBPartner, IBusinessPartner>(), IBusi
         return BusinessPartner( t.c_BPartner_ID, t.name )
     }
 
-    override fun getAllBusinessPartners(): Array<IBusinessPartner> {
-        return getAllData().toTypedArray()
+    override fun getAllBusinessPartners(): IBusinessPartnersResult {
+        return BusinessPartnersResult(getAllData().toTypedArray())
     }
 
-    override fun getBusinessPartnerById(id: Int): IBusinessPartner? {
-        return getById(id)
+    override fun getBusinessPartnerById(id: Int): IBusinessPartnerResult {
+        return BusinessPartnerResult(getById(id))
     }
 }
