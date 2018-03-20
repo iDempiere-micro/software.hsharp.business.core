@@ -7,9 +7,10 @@ import org.jetbrains.exposed.dao.EntityID
 import org.jetbrains.exposed.dao.IntEntity
 import org.jetbrains.exposed.dao.IntEntityClass
 import org.jetbrains.exposed.dao.IntIdTable
+import org.osgi.service.component.annotations.Component
 import software.hsharp.business.models.IBusinessPartner
 import software.hsharp.business.services.IBusinessPartnerResult
-import software.hsharp.business.services.IBusinessPartners
+import software.hsharp.business.services.IBusinessPartnersImpl
 import software.hsharp.business.services.IBusinessPartnersResult
 import java.util.*
 
@@ -49,7 +50,8 @@ data class BusinessPartner( override val id : Int, override val name : String ) 
 data class BusinessPartnersResult( override val businessPartners : Array<IBusinessPartner> ) : IBusinessPartnersResult
 data class BusinessPartnerResult( override val businessPartner : IBusinessPartner? ) : IBusinessPartnerResult
 
-class BusinessPartners : iDempiereEntities<MBPartner, IBusinessPartner>(), IBusinessPartners {
+@Component
+class BusinessPartners : iDempiereEntities<MBPartner, IBusinessPartner>(), IBusinessPartnersImpl {
     override val tableName: String
         get() = "c_bpartner"
 

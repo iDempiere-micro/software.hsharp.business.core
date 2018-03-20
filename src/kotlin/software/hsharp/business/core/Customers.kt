@@ -10,10 +10,11 @@ import org.jetbrains.exposed.dao.IntIdTable
 import org.jetbrains.exposed.sql.Database
 import org.jetbrains.exposed.sql.and
 import org.jetbrains.exposed.sql.transactions.transaction
+import org.osgi.service.component.annotations.Component
 import software.hsharp.business.models.ICategory
 import software.hsharp.business.models.ICustomer
 import software.hsharp.business.services.ICustomerResult
-import software.hsharp.business.services.ICustomers
+import software.hsharp.business.services.ICustomersImpl
 import software.hsharp.business.services.ICustomersResult
 
 object crm_customer_category : IntIdTable(columnName = "customer_category_id") {
@@ -63,7 +64,8 @@ data class Customer( override val id : Int, override val name : String, override
 data class CustomersResult( override val customers : Array<ICustomer> ) : ICustomersResult
 data class CustomerResult( override val customer : ICustomer? ) : ICustomerResult
 
-class Customers : ICustomers {
+@Component
+class Customers : ICustomersImpl {
     override fun getAllCustomers(): ICustomersResult {
         val ctx = Env.getCtx()
         val AD_Org_ID = Env.getAD_Org_ID(ctx)
