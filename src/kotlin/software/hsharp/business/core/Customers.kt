@@ -47,6 +47,7 @@ class CustomerCategoryModel(id: EntityID<Int>) : IntEntity(id) {
     var UpdatedBy by crm_customer_category.updatedby
     var customer_category_uu by crm_customer_category.customer_category_uu
     var name by crm_customer_category.name
+    var searchKey by crm_customer_category.searchKey
     var customer_id by crm_customer_category.customer_id
     var category_id by crm_customer_category.category_id
 
@@ -60,12 +61,20 @@ class CustomerModel(id: EntityID<Int>) : BusinessPartnerModel(id) {
     val categories by CustomerCategoryModel referrersOn crm_customer_category.customer_id
 }
 
-data class Customer( override val id : Int, override val name : String, override val categories : Array<ICategory> ) : ICustomer
+data class Customer(
+        override val id : Int,
+        override val name : String,
+        override val value : String,
+        override val categories : Array<ICategory> ) : ICustomer
 data class CustomersResult( override val customers : Array<ICustomer> ) : ICustomersResult
 data class CustomerResult( override val customer : ICustomer? ) : ICustomerResult
 
 @Component
 class Customers : ICustomersImpl {
+    private fun convert(it:CustomerModel) : Customer {
+        return Customer( it.id.value, it.name, it.searchKey, it.categories.map { Category( it.category_Id.value, it.name ) as ICategory }.toTypedArray() )
+    }
+
     override fun getAllCustomers(): ICustomersResult {
         val ctx = Env.getCtx()
         val AD_Org_ID = Env.getAD_Org_ID(ctx)
@@ -80,7 +89,7 @@ class Customers : ICustomersImpl {
                             .and(c_bpartner.ad_org_id eq AD_Org_ID)
                             .and(c_bpartner.iscustomer eq "Y")
                 }.map {
-                    Customer( it.id.value, it.name, it.categories.map { Category( it.category_Id.value, it.name ) as ICategory }.toTypedArray() )
+                    convert(it)
                 }.filter { MBPartner.get(ctx, it.id) != null }
         }
 
@@ -102,7 +111,7 @@ class Customers : ICustomersImpl {
                             .and( c_bpartner.id eq id )
                     }
                     .map {
-                        Customer( it.id.value, it.name, it.categories.map { Category( it.category_Id.value, it.name ) as ICategory }.toTypedArray() )
+                        convert(it)
                     }.firstOrNull { MBPartner.get(ctx, it.id) != null }
         }
         return CustomerResult(result)
@@ -122,7 +131,7 @@ class Customers : ICustomersImpl {
                                 .and(c_bpartner.ad_org_id eq AD_Org_ID)
                                 .and(c_bpartner.iscustomer eq "Y")
                     }.map {
-                        Customer( it.id.value, it.name, it.categories.map { Category( it.category_Id.value, it.name ) as ICategory }.toTypedArray() )
+                        convert(it)
                     }.filter { MBPartner.get(ctx, it.id) != null && it.categories.intersect(categories.toList()).isNotEmpty() }
         }
 

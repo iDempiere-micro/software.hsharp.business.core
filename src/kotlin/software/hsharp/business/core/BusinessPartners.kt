@@ -46,7 +46,7 @@ open class BusinessPartnerModel(id: EntityID<Int>) : IntEntity(id) {
     var searchKey by c_bpartner.searchKey
 }
 
-data class BusinessPartner( override val id : Int, override val name : String ) : IBusinessPartner
+data class BusinessPartner( override val id : Int, override val name : String, override val value : String ) : IBusinessPartner
 data class BusinessPartnersResult( override val businessPartners : Array<IBusinessPartner> ) : IBusinessPartnersResult
 data class BusinessPartnerResult( override val businessPartner : IBusinessPartner? ) : IBusinessPartnerResult
 
@@ -60,7 +60,7 @@ class BusinessPartners : iDempiereEntities<MBPartner, IBusinessPartner>(), IBusi
     }
 
     override fun convertToDTO(t: MBPartner): IBusinessPartner {
-        return BusinessPartner( t.c_BPartner_ID, t.name )
+        return BusinessPartner( t.c_BPartner_ID, t.name, t.value )
     }
 
     override fun getAllBusinessPartners(): IBusinessPartnersResult {
