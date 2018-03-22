@@ -1,6 +1,6 @@
 package software.hsharp.business.core
 
-import org.compiere.model.MBPartner
+import org.compiere.impl.MBPartner
 import org.idempiere.common.util.DB
 import org.idempiere.common.util.Env
 import org.jetbrains.exposed.dao.EntityID
