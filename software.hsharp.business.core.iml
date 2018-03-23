@@ -19,10 +19,12 @@
     <output-test url="file://$MODULE_DIR$/bin_test"/>
     <orderEntry level="project" name="scala-sdk-2.12.3" type="library"/>
     <orderEntry module-name="software.hsharp.business.models" type="module" scope="PROVIDED"/>
+    <orderEntry module-name="software.hsharp.core.models" type="module" scope="PROVIDED"/>
     <orderEntry module-name="org.adempiere.base" type="module" scope="PROVIDED"/>
     <orderEntry module-name="org.idempiere.icommon" type="module" scope="PROVIDED"/>
     <orderEntry module-name="software.hsharp.api.icommon" type="module" scope="PROVIDED"/>
     <orderEntry module-name="org.idempiere.common" type="module" scope="PROVIDED"/>
+    <orderEntry module-name="org.compiere.model" type="module" scope="PROVIDED"/>
     <orderEntry type="module-library" scope="PROVIDED">
       <library>
         <CLASSES>
@@ -607,6 +609,15 @@
     <orderEntry type="module-library" scope="PROVIDED">
       <library>
         <CLASSES>
+          <root url="file:///home/david/dev/ERP/subprojects/software.hsharp.core.models/bin"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES/>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" scope="PROVIDED">
+      <library>
+        <CLASSES>
           <root url="file:///home/david/dev/ERP/subprojects/software.hsharp.business.models/bin"/>
         </CLASSES>
         <JAVADOC/>
@@ -653,6 +664,15 @@
       <library>
         <CLASSES>
           <root url="file:///home/david/dev/ERP/subprojects/org.idempiere.common/bin"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES/>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" scope="PROVIDED">
+      <library>
+        <CLASSES>
+          <root url="file:///home/david/dev/ERP/subprojects/org.compiere.model/bin"/>
         </CLASSES>
         <JAVADOC/>
         <SOURCES/>
@@ -668,10 +688,12 @@
       </library>
     </orderEntry>
     <orderEntry module-name="software.hsharp.business.models" type="module" scope="RUNTIME"/>
+    <orderEntry module-name="software.hsharp.core.models" type="module" scope="RUNTIME"/>
     <orderEntry module-name="org.adempiere.base" type="module" scope="RUNTIME"/>
     <orderEntry module-name="org.idempiere.icommon" type="module" scope="RUNTIME"/>
     <orderEntry module-name="software.hsharp.api.icommon" type="module" scope="RUNTIME"/>
     <orderEntry module-name="org.idempiere.common" type="module" scope="RUNTIME"/>
+    <orderEntry module-name="org.compiere.model" type="module" scope="RUNTIME"/>
     <orderEntry type="module-library" scope="RUNTIME">
       <library>
         <CLASSES>
@@ -1256,6 +1278,15 @@
     <orderEntry type="module-library" scope="RUNTIME">
       <library>
         <CLASSES>
+          <root url="file:///home/david/dev/ERP/subprojects/software.hsharp.core.models/bin"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES/>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" scope="RUNTIME">
+      <library>
+        <CLASSES>
           <root url="file:///home/david/dev/ERP/subprojects/software.hsharp.business.models/bin"/>
         </CLASSES>
         <JAVADOC/>
@@ -1310,6 +1341,15 @@
     <orderEntry type="module-library" scope="RUNTIME">
       <library>
         <CLASSES>
+          <root url="file:///home/david/dev/ERP/subprojects/org.compiere.model/bin"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES/>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" scope="RUNTIME">
+      <library>
+        <CLASSES>
           <root url="file:///home/david/dev/ERP/subprojects/org.adempiere.base/bin"/>
         </CLASSES>
         <JAVADOC/>
@@ -1317,10 +1357,12 @@
       </library>
     </orderEntry>
     <orderEntry module-name="software.hsharp.business.models" type="module" scope="TEST"/>
+    <orderEntry module-name="software.hsharp.core.models" type="module" scope="TEST"/>
     <orderEntry module-name="org.adempiere.base" type="module" scope="TEST"/>
     <orderEntry module-name="org.idempiere.icommon" type="module" scope="TEST"/>
     <orderEntry module-name="software.hsharp.api.icommon" type="module" scope="TEST"/>
     <orderEntry module-name="org.idempiere.common" type="module" scope="TEST"/>
+    <orderEntry module-name="org.compiere.model" type="module" scope="TEST"/>
     <orderEntry type="module-library" scope="TEST">
       <library>
         <CLASSES>
@@ -2004,6 +2046,15 @@
     <orderEntry type="module-library" scope="TEST">
       <library>
         <CLASSES>
+          <root url="file:///home/david/dev/ERP/subprojects/software.hsharp.core.models/bin"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES/>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" scope="TEST">
+      <library>
+        <CLASSES>
           <root url="file:///home/david/dev/ERP/subprojects/software.hsharp.business.models/bin"/>
         </CLASSES>
         <JAVADOC/>
@@ -2050,6 +2101,15 @@
       <library>
         <CLASSES>
           <root url="file:///home/david/dev/ERP/subprojects/org.idempiere.common/bin"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES/>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" scope="TEST">
+      <library>
+        <CLASSES>
+          <root url="file:///home/david/dev/ERP/subprojects/org.compiere.model/bin"/>
         </CLASSES>
         <JAVADOC/>
         <SOURCES/>
