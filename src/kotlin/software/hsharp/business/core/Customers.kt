@@ -11,11 +11,16 @@ import org.jetbrains.exposed.sql.Database
 import org.jetbrains.exposed.sql.and
 import org.jetbrains.exposed.sql.transactions.transaction
 import org.osgi.service.component.annotations.Component
+import software.hsharp.business.core.util.Paging
 import software.hsharp.business.models.ICategory
 import software.hsharp.business.models.ICustomer
 import software.hsharp.business.services.ICustomerResult
 import software.hsharp.business.services.ICustomersImpl
 import software.hsharp.business.services.ICustomersResult
+import software.hsharp.core.models.IDataSource
+import software.hsharp.core.models.IPaging
+import software.hsharp.business.models.IBusinessPartnerLocation
+import java.util.*
 
 object crm_customer_category : IntIdTable(columnName = "customer_category_id") {
     val ad_client_id = integer("ad_client_id")
@@ -62,17 +67,42 @@ class CustomerModel(id: EntityID<Int>) : BusinessPartnerModel(id) {
 }
 
 data class Customer(
-        override val id : Int,
+        override val Key : Int,
         override val name : String,
         override val value : String,
-        override val categories : Array<ICategory> ) : ICustomer
-data class CustomersResult( override val customers : Array<ICustomer> ) : ICustomersResult
-data class CustomerResult( override val customer : ICustomer? ) : ICustomerResult
+        override val categories : Array<ICategory>,
+        override val Locations: Array<IBusinessPartnerLocation>    
+ ) : ICustomer {
+    override val ID: String
+        get() = ""+Key
+}
+data class CustomersResult(
+        override val customers : Array<ICustomer>,
+        override val __paging: IPaging?) : ICustomersResult {
+    companion object {
+        val metadata: IDataSource? get () {
+            return null
+        }
+    }
+
+    override val __metadata: IDataSource?
+        get() = CustomersResult.metadata
+}
+data class CustomerResult(
+        override val customer : ICustomer?,
+        override val __paging: IPaging? ) : ICustomerResult {
+    override val __metadata: IDataSource?
+        get() = CustomersResult.metadata
+}
 
 @Component
 class Customers : ICustomersImpl {
-    private fun convert(it:CustomerModel) : Customer {
-        return Customer( it.id.value, it.name, it.searchKey, it.categories.map { Category( it.category_Id.value, it.name ) as ICategory }.toTypedArray() )
+    private fun convert(it:CustomerModel, ctx: Properties) : Customer {
+        val bpartner = MBPartner.get(ctx, it.id.value)
+        return Customer( 
+            it.id.value, it.name, it.searchKey, 
+            it.categories.map { Category( it.category_Id.value, it.name ) as ICategory }.toTypedArray(),
+                BusinessPartners.convertLocations( bpartner ) )
     }
 
     override fun getAllCustomers(): ICustomersResult {
@@ -89,11 +119,11 @@ class Customers : ICustomersImpl {
                             .and(c_bpartner.ad_org_id eq AD_Org_ID)
                             .and(c_bpartner.iscustomer eq "Y")
                 }.map {
-                    convert(it)
-                }.filter { MBPartner.get(ctx, it.id) != null }
+                    convert(it, ctx )
+                }
         }
 
-        return CustomersResult( result.toTypedArray() )
+        return CustomersResult( result.toTypedArray(), Paging(result.count()) )
     }
 
     override fun getCustomerById(id: Int): ICustomerResult {
@@ -111,10 +141,10 @@ class Customers : ICustomersImpl {
                             .and( c_bpartner.id eq id )
                     }
                     .map {
-                        convert(it)
-                    }.firstOrNull { MBPartner.get(ctx, it.id) != null }
+                        convert(it, ctx)
+                    }.firstOrNull { MBPartner.get(ctx, it.Key) != null }
         }
-        return CustomerResult(result)
+        return CustomerResult(result, if(result==null) {Paging(0)} else {Paging(1)})
     }
 
     override fun getCustomersByAnyCategory(categories: Array<ICategory>): ICustomersResult {
@@ -131,11 +161,11 @@ class Customers : ICustomersImpl {
                                 .and(c_bpartner.ad_org_id eq AD_Org_ID)
                                 .and(c_bpartner.iscustomer eq "Y")
                     }.map {
-                        convert(it)
-                    }.filter { MBPartner.get(ctx, it.id) != null && it.categories.intersect(categories.toList()).isNotEmpty() }
+                        convert(it, ctx)
+                    }.filter { it.categories.intersect(categories.toList()).isNotEmpty() }
         }
 
-        return CustomersResult( result.toTypedArray() )
+        return CustomersResult( result.toTypedArray(), Paging(result.count())  )
     }
 
 }

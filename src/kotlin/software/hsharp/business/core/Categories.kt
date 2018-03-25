@@ -36,6 +36,9 @@ class CategoryModel(id: EntityID<Int>) : IntEntity(id) {
     var searchKey by crm_category.searchKey
 }
 
-data class Category(override val id: Int, override val name : String) : ICategory
+data class Category(override val Key: Int, override val name : String) : ICategory {
+    override val ID: String
+        get() = ""+Key
+}
 
 class Categories
