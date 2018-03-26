@@ -1,8 +1,6 @@
 package software.hsharp.business.core
 
 import org.compiere.impl.MBPartner
-import org.idempiere.common.util.DB
-import org.idempiere.common.util.Env
 import org.jetbrains.exposed.dao.EntityID
 import org.jetbrains.exposed.dao.IntEntity
 import org.jetbrains.exposed.dao.IntEntityClass
@@ -13,8 +11,6 @@ import software.hsharp.business.models.IBusinessPartner
 import software.hsharp.business.services.IBusinessPartnerResult
 import software.hsharp.business.services.IBusinessPartnersImpl
 import software.hsharp.business.services.IBusinessPartnersResult
-import software.hsharp.business.util.DataColumn
-import software.hsharp.business.util.DataTable
 import software.hsharp.core.models.IDataSource
 import software.hsharp.core.models.IPaging
 import java.util.*
