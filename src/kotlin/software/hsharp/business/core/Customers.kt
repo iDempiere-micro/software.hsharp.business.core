@@ -11,7 +11,7 @@ import org.jetbrains.exposed.sql.Database
 import org.jetbrains.exposed.sql.and
 import org.jetbrains.exposed.sql.transactions.transaction
 import org.osgi.service.component.annotations.Component
-import software.hsharp.business.core.util.Paging
+import software.hsharp.core.util.Paging
 import software.hsharp.business.models.ICategory
 import software.hsharp.business.models.ICustomer
 import software.hsharp.business.services.ICustomerResult
@@ -123,7 +123,7 @@ class Customers : ICustomersImpl {
                 }
         }
 
-        return CustomersResult( result.toTypedArray(), Paging(result.count()) )
+        return CustomersResult( result.toTypedArray(), Paging(result.count()))
     }
 
     override fun getCustomerById(id: Int): ICustomerResult {
@@ -144,7 +144,11 @@ class Customers : ICustomersImpl {
                         convert(it, ctx)
                     }.firstOrNull { MBPartner.get(ctx, it.Key) != null }
         }
-        return CustomerResult(result, if(result==null) {Paging(0)} else {Paging(1)})
+        return CustomerResult(result, if(result==null) {
+            Paging(0)
+        } else {
+            Paging(1)
+        })
     }
 
     override fun getCustomersByAnyCategory(categories: Array<ICategory>): ICustomersResult {
@@ -165,7 +169,7 @@ class Customers : ICustomersImpl {
                     }.filter { it.categories.intersect(categories.toList()).isNotEmpty() }
         }
 
-        return CustomersResult( result.toTypedArray(), Paging(result.count())  )
+        return CustomersResult( result.toTypedArray(), Paging(result.count()))
     }
 
 }

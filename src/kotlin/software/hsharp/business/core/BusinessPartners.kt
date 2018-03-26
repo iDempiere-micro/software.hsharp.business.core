@@ -6,7 +6,7 @@ import org.jetbrains.exposed.dao.IntEntity
 import org.jetbrains.exposed.dao.IntEntityClass
 import org.jetbrains.exposed.dao.IntIdTable
 import org.osgi.service.component.annotations.Component
-import software.hsharp.business.core.util.Paging
+import software.hsharp.core.util.Paging
 import software.hsharp.business.models.IBusinessPartner
 import software.hsharp.business.services.IBusinessPartnerResult
 import software.hsharp.business.services.IBusinessPartnersImpl
@@ -147,6 +147,10 @@ class BusinessPartners : iDempiereEntities<MBPartner, IBusinessPartner>(), IBusi
 
     override fun getBusinessPartnerById(id: Int): IBusinessPartnerResult {
         val result = getById(id)
-        return BusinessPartnerResult(result, if(result==null) {Paging(0)} else {Paging(1)} )
+        return BusinessPartnerResult(result, if(result==null) {
+            Paging(0)
+        } else {
+            Paging(1)
+        } )
     }
 }
