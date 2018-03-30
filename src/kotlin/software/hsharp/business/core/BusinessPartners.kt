@@ -6,16 +6,16 @@ import org.jetbrains.exposed.dao.IntEntity
 import org.jetbrains.exposed.dao.IntEntityClass
 import org.jetbrains.exposed.dao.IntIdTable
 import org.osgi.service.component.annotations.Component
+import org.osgi.service.component.annotations.Reference
 import software.hsharp.core.util.Paging
 import software.hsharp.business.models.IBusinessPartner
-import software.hsharp.business.services.IBusinessPartnerResult
-import software.hsharp.business.services.IBusinessPartnersImpl
-import software.hsharp.business.services.IBusinessPartnersResult
 import software.hsharp.core.models.IDataSource
 import software.hsharp.core.models.IPaging
 import java.util.*
 import software.hsharp.business.models.IBusinessPartnerLocation
 import software.hsharp.business.models.ILocation
+import software.hsharp.business.services.*
+import software.hsharp.core.services.IServiceRegisterRegister
 
 object c_bpartner : IntIdTable(columnName = "c_bpartner_id") {
     val ad_client_id = integer("ad_client_id")
@@ -103,6 +103,9 @@ data class BusinessPartnerResult(
 
 @Component
 class BusinessPartners : iDempiereEntities<MBPartner, IBusinessPartner>(), IBusinessPartnersImpl {
+    override val name: String
+        get() = "Business Partners Service"
+
     companion object {
         public fun convertLocations( t: MBPartner ) : Array<IBusinessPartnerLocation> {
             return t.Locations.map {
@@ -153,4 +156,19 @@ class BusinessPartners : iDempiereEntities<MBPartner, IBusinessPartner>(), IBusi
             Paging(1)
         } )
     }
+}
+
+@Component
+class BusinessPartnersRegisterHolder {
+    companion object {
+        var LoginServiceRegister: IBusinessPartnersServiceRegister? = null
+        var loginManager : BusinessPartners = BusinessPartners()
+    }
+
+    @Reference
+    fun setLoginServiceRegister(loginServiceRegister: IBusinessPartnersServiceRegister) {
+        LoginServiceRegister = loginServiceRegister
+        loginServiceRegister.registerService( loginManager )
+    }
+
 }

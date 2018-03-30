@@ -11,15 +11,15 @@ import org.jetbrains.exposed.sql.Database
 import org.jetbrains.exposed.sql.and
 import org.jetbrains.exposed.sql.transactions.transaction
 import org.osgi.service.component.annotations.Component
+import org.osgi.service.component.annotations.Reference
 import software.hsharp.core.util.Paging
 import software.hsharp.business.models.ICategory
 import software.hsharp.business.models.ICustomer
-import software.hsharp.business.services.ICustomerResult
-import software.hsharp.business.services.ICustomersImpl
-import software.hsharp.business.services.ICustomersResult
 import software.hsharp.core.models.IDataSource
 import software.hsharp.core.models.IPaging
 import software.hsharp.business.models.IBusinessPartnerLocation
+import software.hsharp.business.services.*
+import software.hsharp.core.services.IServiceRegisterRegister
 import java.util.*
 
 object crm_customer_category : IntIdTable(columnName = "customer_category_id") {
@@ -97,6 +97,9 @@ data class CustomerResult(
 
 @Component
 class Customers : ICustomersImpl {
+    override val name: String
+        get() = "Customers Service"
+
     private fun convert(it:CustomerModel, ctx: Properties) : Customer {
         val bpartner = MBPartner.get(ctx, it.id.value)
         return Customer( 
@@ -170,6 +173,21 @@ class Customers : ICustomersImpl {
         }
 
         return CustomersResult( result.toTypedArray(), Paging(result.count()))
+    }
+
+}
+
+@Component
+class CustomersRegisterHolder {
+    companion object {
+        var CustomersServiceRegister: ICustomersServiceRegister? = null
+        var customers : Customers = Customers()
+    }
+
+    @Reference
+    fun setCustomersServiceRegister(customersServiceRegister: ICustomersServiceRegister) {
+        CustomersServiceRegister = customersServiceRegister
+        customersServiceRegister.registerService( customers )
     }
 
 }
