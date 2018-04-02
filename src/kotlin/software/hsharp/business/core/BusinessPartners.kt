@@ -108,17 +108,17 @@ class BusinessPartners : iDempiereEntities<MBPartner, IBusinessPartner>(), IBusi
 
     companion object {
         public fun convertLocations( t: MBPartner ) : Array<IBusinessPartnerLocation> {
-            return t.Locations.map {
+            return t.getLocations().map {
                 BusinessPartnerLocation(
                         Location(
-                                CountryName = it.Location.CountryName,
-                                City = it.Location.City,
-                                Postal = it.Location.Postal,
-                                Address1 = it.Location.Address1,
-                                Address2 = it.Location.Address2,
-                                Address3 = it.Location.Address3,
-                                Address4 = it.Location.Address4,
-                                Address5 = it.Location.Address5
+                                CountryName = it.getLocation().CountryName,
+                                City = it.getLocation().City,
+                                Postal = it.getLocation().Postal,
+                                Address1 = it.getLocation().Address1,
+                                Address2 = it.getLocation().Address2,
+                                Address3 = it.getLocation().Address3,
+                                Address4 = it.getLocation().Address4,
+                                Address5 = it.getLocation().Address5
                         )
                 )
             }.toTypedArray()
