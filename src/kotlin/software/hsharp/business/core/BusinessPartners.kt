@@ -1,6 +1,7 @@
 package software.hsharp.business.core
 
-import org.compiere.impl.MBPartner
+import org.compiere.crm.MBPartner
+import org.compiere.model.I_C_BPartner
 import org.jetbrains.exposed.dao.EntityID
 import org.jetbrains.exposed.dao.IntEntity
 import org.jetbrains.exposed.dao.IntEntityClass
@@ -102,13 +103,13 @@ data class BusinessPartnerResult(
 }
 
 @Component
-class BusinessPartners : iDempiereEntities<MBPartner, IBusinessPartner>(), IBusinessPartnersImpl {
+class BusinessPartners : iDempiereEntities<I_C_BPartner, IBusinessPartner>(), IBusinessPartnersImpl {
     override val name: String
         get() = "Business Partners Service"
 
     companion object {
-        public fun convertLocations( t: MBPartner ) : Array<IBusinessPartnerLocation> {
-            return t.getLocations().map {
+        public fun convertLocations( t: I_C_BPartner ) : Array<IBusinessPartnerLocation> {
+            return t.locations.map {
                 BusinessPartnerLocation(
                         Location(
                                 CountryName = it.getLocation().CountryName,
@@ -129,11 +130,11 @@ class BusinessPartners : iDempiereEntities<MBPartner, IBusinessPartner>(), IBusi
     override val tableName: String
         get() = "c_bpartner"
 
-    override fun getEntityById(ctx: Properties, id: Int): MBPartner? {
+    override fun getEntityById(ctx: Properties, id: Int): I_C_BPartner? {
         return MBPartner.get(ctx, id)
     }
 
-    override fun convertToDTO(t: MBPartner): IBusinessPartner {
+    override fun convertToDTO(t: I_C_BPartner): IBusinessPartner {
         val result : BusinessPartner =
                 BusinessPartner(
                         t.c_BPartner_ID,
