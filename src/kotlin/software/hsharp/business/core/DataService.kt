@@ -34,6 +34,14 @@ class DataService : IDataService {
         TODO( "Implement create data for iDempiere too" )
     }
 
+    override fun updateData(
+            connection: Connection,
+            tableName: String,
+            id: Int,
+            fields: MutableList<Pair<String, Any>>) : IUpdateDataResult {
+        TODO( "Implement update data for iDempiere too" )
+    }
+
     override fun getData(
             connection: Connection, tableName: String,
             orderBy : String , // Name
