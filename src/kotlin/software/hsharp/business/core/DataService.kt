@@ -21,6 +21,10 @@ data class GetDataResult(
 
 @Component
 class DataService : IDataService {
+    override fun execute(connection: Connection, procName: String, jsonBody: String): String? {
+        TODO("Implement execute for iDempiere too")
+    }
+
     override val schemasSupported: Array<String>
         get() = arrayOf("adempiere", "idempiere")
     override val name: String
