@@ -21,6 +21,10 @@ data class GetDataResult(
 
 @Component
 class DataService : IDataService {
+    override fun getTreeData(connection: Connection, root: ITreeDataDescriptor, orderBy: String, orderByOrder: String, offset: Int, limit: Int, filterName1: String, filterValue1: String, filterName2: String, filterValue2: String): IGetTreeDataResult {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
     override fun execute(connection: Connection, procName: String, jsonBody: String): String? {
         TODO("Implement execute for iDempiere too")
     }
