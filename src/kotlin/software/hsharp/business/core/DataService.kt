@@ -29,8 +29,9 @@ class DataService : IDataService {
         TODO("Implement execute for iDempiere too")
     }
 
-    override val schemasSupported: Array<String>
-        get() = arrayOf("adempiere", "idempiere")
+    override fun getSchemasSupported(connection:Connection) : Array<String> {
+        return arrayOf("adempiere", "idempiere")
+    }
     override val name: String
         get() = "iDempiere Data Service"
 
