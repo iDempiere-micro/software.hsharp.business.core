@@ -20,11 +20,14 @@
     <orderEntry level="project" name="scala-sdk-2.12.3" type="library"/>
     <orderEntry module-name="software.hsharp.business.models" type="module" scope="PROVIDED"/>
     <orderEntry module-name="software.hsharp.core.models" type="module" scope="PROVIDED"/>
-    <orderEntry module-name="org.adempiere.base" type="module" scope="PROVIDED"/>
+    <orderEntry module-name="org.compiere.crm" type="module" scope="PROVIDED"/>
     <orderEntry module-name="org.idempiere.icommon" type="module" scope="PROVIDED"/>
     <orderEntry module-name="software.hsharp.api.icommon" type="module" scope="PROVIDED"/>
     <orderEntry module-name="org.idempiere.common" type="module" scope="PROVIDED"/>
     <orderEntry module-name="org.compiere.model" type="module" scope="PROVIDED"/>
+    <orderEntry module-name="org.idempiere.orm" type="module" scope="PROVIDED"/>
+    <orderEntry module-name="org.compiere.util" type="module" scope="PROVIDED"/>
+    <orderEntry module-name="org.compiere.orm" type="module" scope="PROVIDED"/>
     <orderEntry type="module-library" scope="PROVIDED">
       <library>
         <CLASSES>
@@ -39,11 +42,11 @@
     <orderEntry type="module-library" scope="PROVIDED">
       <library>
         <CLASSES>
-          <root url="jar:///home/david/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-osgi-bundle/1.2.31/4c1a4b78fd0777cb29bf3ff89c8053ef6dbfd3fc/kotlin-osgi-bundle-1.2.31.jar!/"/>
+          <root url="jar:///home/david/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-osgi-bundle/1.2.40/a5055bc5900c9141cbef2c11e8561f55ce3f2de1/kotlin-osgi-bundle-1.2.40.jar!/"/>
         </CLASSES>
         <JAVADOC/>
         <SOURCES>
-          <root url="jar:///home/david/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-osgi-bundle/1.2.31/4482b73ba99ec897d089e2e375533407801fc2dc/kotlin-osgi-bundle-1.2.31-sources.jar!/"/>
+          <root url="jar:///home/david/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-osgi-bundle/1.2.40/9ecaf8e24d4d8a5f1747ceadc2d8edf0b79fa6b3/kotlin-osgi-bundle-1.2.40-sources.jar!/"/>
         </SOURCES>
       </library>
     </orderEntry>
@@ -127,11 +130,11 @@
     <orderEntry type="module-library" scope="PROVIDED">
       <library>
         <CLASSES>
-          <root url="jar:///home/david/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.module/jackson-module-kotlin/2.9.4.1/6542720c526997e74bb4220b3925e6c12a24b631/jackson-module-kotlin-2.9.4.1.jar!/"/>
+          <root url="jar:///home/david/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.module/jackson-module-kotlin/2.9.5/3e73e80ff0285a776954252f61c22e4059ee5267/jackson-module-kotlin-2.9.5.jar!/"/>
         </CLASSES>
         <JAVADOC/>
         <SOURCES>
-          <root url="jar:///home/david/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.module/jackson-module-kotlin/2.9.4.1/8a4bb5bed5ec52e20ba09ad4ebd7af8b0836ecf5/jackson-module-kotlin-2.9.4.1-sources.jar!/"/>
+          <root url="jar:///home/david/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.module/jackson-module-kotlin/2.9.5/e6185878f9870d64b1de64f2d328467a49a02ec1/jackson-module-kotlin-2.9.5-sources.jar!/"/>
         </SOURCES>
       </library>
     </orderEntry>
@@ -259,11 +262,11 @@
     <orderEntry type="module-library" scope="PROVIDED">
       <library>
         <CLASSES>
-          <root url="jar:///home/david/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-databind/2.9.4/498bbc3b94f566982c7f7c6d4d303fce365529be/jackson-databind-2.9.4.jar!/"/>
+          <root url="jar:///home/david/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-databind/2.9.5/3490508379d065fe3fcb80042b62f630f7588606/jackson-databind-2.9.5.jar!/"/>
         </CLASSES>
         <JAVADOC/>
         <SOURCES>
-          <root url="jar:///home/david/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-databind/2.9.4/36aa90e99b8c73d43e66daadf50a96b83cbd09d3/jackson-databind-2.9.4-sources.jar!/"/>
+          <root url="jar:///home/david/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-databind/2.9.5/7f93f92d7ff619c1a49b5442ba77c0c297a88019/jackson-databind-2.9.5-sources.jar!/"/>
         </SOURCES>
       </library>
     </orderEntry>
@@ -281,11 +284,11 @@
     <orderEntry type="module-library" scope="PROVIDED">
       <library>
         <CLASSES>
-          <root url="jar:///home/david/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-reflect/1.2.31/3159ff5936aa570a90050d385cb717fbb6c1723a/kotlin-reflect-1.2.31.jar!/"/>
+          <root url="jar:///home/david/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-reflect/1.2.21/3159ff5936aa570a90050d385cb717fbb6c1723a/kotlin-reflect-1.2.21.jar!/"/>
         </CLASSES>
         <JAVADOC/>
         <SOURCES>
-          <root url="jar:///home/david/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-reflect/1.2.31/3b26eda48f049afcd1a84e78797a558d0764e471/kotlin-reflect-1.2.31-sources.jar!/"/>
+          <root url="jar:///home/david/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-reflect/1.2.21/3b26eda48f049afcd1a84e78797a558d0764e471/kotlin-reflect-1.2.21-sources.jar!/"/>
         </SOURCES>
       </library>
     </orderEntry>
@@ -297,28 +300,6 @@
         <JAVADOC/>
         <SOURCES>
           <root url="jar:///home/david/.gradle/caches/modules-2/files-2.1/org.osgi/org.osgi.service.event/1.3.1/51e0550fd2c318084082698d7b9094f0f14e9ba9/org.osgi.service.event-1.3.1-sources.jar!/"/>
-        </SOURCES>
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library" scope="PROVIDED">
-      <library>
-        <CLASSES>
-          <root url="jar:///home/david/.gradle/caches/modules-2/files-2.1/org.passay/passay/1.3.0/af6c73aef2f5d0ac09bd7db583c79f8a467035d1/passay-1.3.0.jar!/"/>
-        </CLASSES>
-        <JAVADOC/>
-        <SOURCES>
-          <root url="jar:///home/david/.gradle/caches/modules-2/files-2.1/org.passay/passay/1.3.0/806b007ce4af903c1b3c0e8aef133ea00b79e769/passay-1.3.0-sources.jar!/"/>
-        </SOURCES>
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library" scope="PROVIDED">
-      <library>
-        <CLASSES>
-          <root url="jar:///home/david/.gradle/caches/modules-2/files-2.1/javax.mail/mail/1.4.7/9add058589d5d85adeb625859bf2c5eeaaedf12d/mail-1.4.7.jar!/"/>
-        </CLASSES>
-        <JAVADOC/>
-        <SOURCES>
-          <root url="jar:///home/david/.gradle/caches/modules-2/files-2.1/javax.mail/mail/1.4.7/bb76e5678cdb3e7488bb5578a8461e82fba5fe36/mail-1.4.7-sources.jar!/"/>
         </SOURCES>
       </library>
     </orderEntry>
@@ -363,6 +344,17 @@
         <JAVADOC/>
         <SOURCES>
           <root url="jar:///home/david/.gradle/caches/modules-2/files-2.1/org.osgi/org.osgi.service.cm/1.5.0/b43af010f1890c95062f65ba7007e5b59b59e35e/org.osgi.service.cm-1.5.0-sources.jar!/"/>
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" scope="PROVIDED">
+      <library>
+        <CLASSES>
+          <root url="jar:///home/david/.gradle/caches/modules-2/files-2.1/javax.mail/mail/1.4.7/9add058589d5d85adeb625859bf2c5eeaaedf12d/mail-1.4.7.jar!/"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES>
+          <root url="jar:///home/david/.gradle/caches/modules-2/files-2.1/javax.mail/mail/1.4.7/bb76e5678cdb3e7488bb5578a8461e82fba5fe36/mail-1.4.7-sources.jar!/"/>
         </SOURCES>
       </library>
     </orderEntry>
@@ -446,55 +438,44 @@
     <orderEntry type="module-library" scope="PROVIDED">
       <library>
         <CLASSES>
-          <root url="jar:///home/david/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-core/2.9.4/a9a71ec1aa37da47db168fede9a4a5fb5e374320/jackson-core-2.9.4.jar!/"/>
+          <root url="jar:///home/david/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-core/2.9.5/a22ac51016944b06fd9ffbc9541c6e7ce5eea117/jackson-core-2.9.5.jar!/"/>
         </CLASSES>
         <JAVADOC/>
         <SOURCES>
-          <root url="jar:///home/david/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-core/2.9.4/852f37ebcdd5f504a9d6bbf967cf84fb5984294d/jackson-core-2.9.4-sources.jar!/"/>
+          <root url="jar:///home/david/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-core/2.9.5/739ee692a42ee8c0cf9d3c504f0df568797b0a85/jackson-core-2.9.5-sources.jar!/"/>
         </SOURCES>
       </library>
     </orderEntry>
     <orderEntry type="module-library" scope="PROVIDED">
       <library>
         <CLASSES>
-          <root url="jar:///home/david/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib-jdk8/1.2.31/f916048adc012c9342b796a5f84c0ac6205abcac/kotlin-stdlib-jdk8-1.2.31.jar!/"/>
+          <root url="jar:///home/david/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib-jdk8/1.2.31/50094b02ec8a4c2e4444073c722bb56c8a52b83c/kotlin-stdlib-jdk8-1.2.31.jar!/"/>
         </CLASSES>
         <JAVADOC/>
         <SOURCES>
-          <root url="jar:///home/david/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib-jdk8/1.2.31/3a00be60f8d3eb8dfe0bedd9a174cf2948138287/kotlin-stdlib-jdk8-1.2.31-sources.jar!/"/>
+          <root url="jar:///home/david/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib-jdk8/1.2.31/6b2b6e5fb34d9171d936033347431d89443373b0/kotlin-stdlib-jdk8-1.2.31-sources.jar!/"/>
         </SOURCES>
       </library>
     </orderEntry>
     <orderEntry type="module-library" scope="PROVIDED">
       <library>
         <CLASSES>
-          <root url="jar:///home/david/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib-jdk7/1.2.31/ca12c47fc1e3a7316067b2a51e2f214745ebf8c5/kotlin-stdlib-jdk7-1.2.31.jar!/"/>
+          <root url="jar:///home/david/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib-jdk7/1.2.31/95d6a67e8787280a82a2059e54e4db7ac6cfe74/kotlin-stdlib-jdk7-1.2.31.jar!/"/>
         </CLASSES>
         <JAVADOC/>
         <SOURCES>
-          <root url="jar:///home/david/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib-jdk7/1.2.31/49e090644e085340bb9afc7d554b2df8394bb36c/kotlin-stdlib-jdk7-1.2.31-sources.jar!/"/>
+          <root url="jar:///home/david/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib-jdk7/1.2.31/e20207522f93e04fbbf006b141e924d211335564/kotlin-stdlib-jdk7-1.2.31-sources.jar!/"/>
         </SOURCES>
       </library>
     </orderEntry>
     <orderEntry type="module-library" scope="PROVIDED">
       <library>
         <CLASSES>
-          <root url="jar:///home/david/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/1.2.31/2dfac33f8b4e92c9dd1422cd286834701a6f6d6/kotlin-stdlib-1.2.31.jar!/"/>
+          <root url="jar:///home/david/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/1.2.31/153dcd9ed9db246a7e36f4d7609e2a9f4718c674/kotlin-stdlib-1.2.31.jar!/"/>
         </CLASSES>
         <JAVADOC/>
         <SOURCES>
-          <root url="jar:///home/david/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/1.2.31/50878770fd010106bd91f2f5c3b7904a56883ec3/kotlin-stdlib-1.2.31-sources.jar!/"/>
-        </SOURCES>
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library" scope="PROVIDED">
-      <library>
-        <CLASSES>
-          <root url="jar:///home/david/.gradle/caches/modules-2/files-2.1/javax.activation/activation/1.1/e6cb541461c2834bdea3eb920f1884d1eb508b50/activation-1.1.jar!/"/>
-        </CLASSES>
-        <JAVADOC/>
-        <SOURCES>
-          <root url="jar:///home/david/.gradle/caches/modules-2/files-2.1/javax.activation/activation/1.1/3697e9f67a2ed7ac5f589cff30f21173299440/activation-1.1-sources.jar!/"/>
+          <root url="jar:///home/david/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/1.2.31/a1a0b714cb760f9bd0f4f9d04915c1748eaefc64/kotlin-stdlib-1.2.31-sources.jar!/"/>
         </SOURCES>
       </library>
     </orderEntry>
@@ -539,6 +520,17 @@
         <JAVADOC/>
         <SOURCES>
           <root url="jar:///home/david/.gradle/caches/modules-2/files-2.1/commons-collections/commons-collections/3.2.2/78c50ebda5784937ca1615fc0e1d0cb35857d572/commons-collections-3.2.2-sources.jar!/"/>
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" scope="PROVIDED">
+      <library>
+        <CLASSES>
+          <root url="jar:///home/david/.gradle/caches/modules-2/files-2.1/javax.activation/activation/1.1/e6cb541461c2834bdea3eb920f1884d1eb508b50/activation-1.1.jar!/"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES>
+          <root url="jar:///home/david/.gradle/caches/modules-2/files-2.1/javax.activation/activation/1.1/3697e9f67a2ed7ac5f589cff30f21173299440/activation-1.1-sources.jar!/"/>
         </SOURCES>
       </library>
     </orderEntry>
@@ -600,7 +592,7 @@
     <orderEntry type="module-library" scope="PROVIDED">
       <library>
         <CLASSES>
-          <root url="jar://$MODULE_DIR$/exposed-0.10.1.jar!/"/>
+          <root url="jar:///home/david/dev/ERP/lib/exposed-0.10.3-SNAPSHOT.jar!/"/>
         </CLASSES>
         <JAVADOC/>
         <SOURCES/>
@@ -619,24 +611,6 @@
       <library>
         <CLASSES>
           <root url="file:///home/david/dev/ERP/subprojects/software.hsharp.business.models/bin"/>
-        </CLASSES>
-        <JAVADOC/>
-        <SOURCES/>
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library" scope="PROVIDED">
-      <library>
-        <CLASSES>
-          <root url="jar:///home/david/dev/ERP/subprojects/org.adempiere.base/bsh-2.0b6.jar!/"/>
-        </CLASSES>
-        <JAVADOC/>
-        <SOURCES/>
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library" scope="PROVIDED">
-      <library>
-        <CLASSES>
-          <root url="jar:///home/david/dev/ERP/subprojects/org.adempiere.base/cron4j-2.2.5.jar!/"/>
         </CLASSES>
         <JAVADOC/>
         <SOURCES/>
@@ -681,7 +655,34 @@
     <orderEntry type="module-library" scope="PROVIDED">
       <library>
         <CLASSES>
-          <root url="file:///home/david/dev/ERP/subprojects/org.adempiere.base/bin"/>
+          <root url="file:///home/david/dev/ERP/subprojects/org.compiere.util/bin"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES/>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" scope="PROVIDED">
+      <library>
+        <CLASSES>
+          <root url="file:///home/david/dev/ERP/subprojects/org.idempiere.orm/bin"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES/>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" scope="PROVIDED">
+      <library>
+        <CLASSES>
+          <root url="file:///home/david/dev/ERP/subprojects/org.compiere.orm/bin"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES/>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" scope="PROVIDED">
+      <library>
+        <CLASSES>
+          <root url="file:///home/david/dev/ERP/subprojects/org.compiere.crm/bin"/>
         </CLASSES>
         <JAVADOC/>
         <SOURCES/>
@@ -689,11 +690,14 @@
     </orderEntry>
     <orderEntry module-name="software.hsharp.business.models" type="module" scope="RUNTIME"/>
     <orderEntry module-name="software.hsharp.core.models" type="module" scope="RUNTIME"/>
-    <orderEntry module-name="org.adempiere.base" type="module" scope="RUNTIME"/>
+    <orderEntry module-name="org.compiere.crm" type="module" scope="RUNTIME"/>
     <orderEntry module-name="org.idempiere.icommon" type="module" scope="RUNTIME"/>
     <orderEntry module-name="software.hsharp.api.icommon" type="module" scope="RUNTIME"/>
     <orderEntry module-name="org.idempiere.common" type="module" scope="RUNTIME"/>
     <orderEntry module-name="org.compiere.model" type="module" scope="RUNTIME"/>
+    <orderEntry module-name="org.idempiere.orm" type="module" scope="RUNTIME"/>
+    <orderEntry module-name="org.compiere.util" type="module" scope="RUNTIME"/>
+    <orderEntry module-name="org.compiere.orm" type="module" scope="RUNTIME"/>
     <orderEntry type="module-library" scope="RUNTIME">
       <library>
         <CLASSES>
@@ -708,11 +712,11 @@
     <orderEntry type="module-library" scope="RUNTIME">
       <library>
         <CLASSES>
-          <root url="jar:///home/david/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-osgi-bundle/1.2.31/4c1a4b78fd0777cb29bf3ff89c8053ef6dbfd3fc/kotlin-osgi-bundle-1.2.31.jar!/"/>
+          <root url="jar:///home/david/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-osgi-bundle/1.2.40/a5055bc5900c9141cbef2c11e8561f55ce3f2de1/kotlin-osgi-bundle-1.2.40.jar!/"/>
         </CLASSES>
         <JAVADOC/>
         <SOURCES>
-          <root url="jar:///home/david/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-osgi-bundle/1.2.31/4482b73ba99ec897d089e2e375533407801fc2dc/kotlin-osgi-bundle-1.2.31-sources.jar!/"/>
+          <root url="jar:///home/david/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-osgi-bundle/1.2.40/9ecaf8e24d4d8a5f1747ceadc2d8edf0b79fa6b3/kotlin-osgi-bundle-1.2.40-sources.jar!/"/>
         </SOURCES>
       </library>
     </orderEntry>
@@ -796,11 +800,11 @@
     <orderEntry type="module-library" scope="RUNTIME">
       <library>
         <CLASSES>
-          <root url="jar:///home/david/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.module/jackson-module-kotlin/2.9.4.1/6542720c526997e74bb4220b3925e6c12a24b631/jackson-module-kotlin-2.9.4.1.jar!/"/>
+          <root url="jar:///home/david/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.module/jackson-module-kotlin/2.9.5/3e73e80ff0285a776954252f61c22e4059ee5267/jackson-module-kotlin-2.9.5.jar!/"/>
         </CLASSES>
         <JAVADOC/>
         <SOURCES>
-          <root url="jar:///home/david/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.module/jackson-module-kotlin/2.9.4.1/8a4bb5bed5ec52e20ba09ad4ebd7af8b0836ecf5/jackson-module-kotlin-2.9.4.1-sources.jar!/"/>
+          <root url="jar:///home/david/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.module/jackson-module-kotlin/2.9.5/e6185878f9870d64b1de64f2d328467a49a02ec1/jackson-module-kotlin-2.9.5-sources.jar!/"/>
         </SOURCES>
       </library>
     </orderEntry>
@@ -928,11 +932,11 @@
     <orderEntry type="module-library" scope="RUNTIME">
       <library>
         <CLASSES>
-          <root url="jar:///home/david/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-databind/2.9.4/498bbc3b94f566982c7f7c6d4d303fce365529be/jackson-databind-2.9.4.jar!/"/>
+          <root url="jar:///home/david/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-databind/2.9.5/3490508379d065fe3fcb80042b62f630f7588606/jackson-databind-2.9.5.jar!/"/>
         </CLASSES>
         <JAVADOC/>
         <SOURCES>
-          <root url="jar:///home/david/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-databind/2.9.4/36aa90e99b8c73d43e66daadf50a96b83cbd09d3/jackson-databind-2.9.4-sources.jar!/"/>
+          <root url="jar:///home/david/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-databind/2.9.5/7f93f92d7ff619c1a49b5442ba77c0c297a88019/jackson-databind-2.9.5-sources.jar!/"/>
         </SOURCES>
       </library>
     </orderEntry>
@@ -950,11 +954,11 @@
     <orderEntry type="module-library" scope="RUNTIME">
       <library>
         <CLASSES>
-          <root url="jar:///home/david/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-reflect/1.2.31/3159ff5936aa570a90050d385cb717fbb6c1723a/kotlin-reflect-1.2.31.jar!/"/>
+          <root url="jar:///home/david/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-reflect/1.2.21/3159ff5936aa570a90050d385cb717fbb6c1723a/kotlin-reflect-1.2.21.jar!/"/>
         </CLASSES>
         <JAVADOC/>
         <SOURCES>
-          <root url="jar:///home/david/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-reflect/1.2.31/3b26eda48f049afcd1a84e78797a558d0764e471/kotlin-reflect-1.2.31-sources.jar!/"/>
+          <root url="jar:///home/david/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-reflect/1.2.21/3b26eda48f049afcd1a84e78797a558d0764e471/kotlin-reflect-1.2.21-sources.jar!/"/>
         </SOURCES>
       </library>
     </orderEntry>
@@ -966,28 +970,6 @@
         <JAVADOC/>
         <SOURCES>
           <root url="jar:///home/david/.gradle/caches/modules-2/files-2.1/org.osgi/org.osgi.service.event/1.3.1/51e0550fd2c318084082698d7b9094f0f14e9ba9/org.osgi.service.event-1.3.1-sources.jar!/"/>
-        </SOURCES>
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library" scope="RUNTIME">
-      <library>
-        <CLASSES>
-          <root url="jar:///home/david/.gradle/caches/modules-2/files-2.1/org.passay/passay/1.3.0/af6c73aef2f5d0ac09bd7db583c79f8a467035d1/passay-1.3.0.jar!/"/>
-        </CLASSES>
-        <JAVADOC/>
-        <SOURCES>
-          <root url="jar:///home/david/.gradle/caches/modules-2/files-2.1/org.passay/passay/1.3.0/806b007ce4af903c1b3c0e8aef133ea00b79e769/passay-1.3.0-sources.jar!/"/>
-        </SOURCES>
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library" scope="RUNTIME">
-      <library>
-        <CLASSES>
-          <root url="jar:///home/david/.gradle/caches/modules-2/files-2.1/javax.mail/mail/1.4.7/9add058589d5d85adeb625859bf2c5eeaaedf12d/mail-1.4.7.jar!/"/>
-        </CLASSES>
-        <JAVADOC/>
-        <SOURCES>
-          <root url="jar:///home/david/.gradle/caches/modules-2/files-2.1/javax.mail/mail/1.4.7/bb76e5678cdb3e7488bb5578a8461e82fba5fe36/mail-1.4.7-sources.jar!/"/>
         </SOURCES>
       </library>
     </orderEntry>
@@ -1032,6 +1014,17 @@
         <JAVADOC/>
         <SOURCES>
           <root url="jar:///home/david/.gradle/caches/modules-2/files-2.1/org.osgi/org.osgi.service.cm/1.5.0/b43af010f1890c95062f65ba7007e5b59b59e35e/org.osgi.service.cm-1.5.0-sources.jar!/"/>
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" scope="RUNTIME">
+      <library>
+        <CLASSES>
+          <root url="jar:///home/david/.gradle/caches/modules-2/files-2.1/javax.mail/mail/1.4.7/9add058589d5d85adeb625859bf2c5eeaaedf12d/mail-1.4.7.jar!/"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES>
+          <root url="jar:///home/david/.gradle/caches/modules-2/files-2.1/javax.mail/mail/1.4.7/bb76e5678cdb3e7488bb5578a8461e82fba5fe36/mail-1.4.7-sources.jar!/"/>
         </SOURCES>
       </library>
     </orderEntry>
@@ -1115,55 +1108,44 @@
     <orderEntry type="module-library" scope="RUNTIME">
       <library>
         <CLASSES>
-          <root url="jar:///home/david/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-core/2.9.4/a9a71ec1aa37da47db168fede9a4a5fb5e374320/jackson-core-2.9.4.jar!/"/>
+          <root url="jar:///home/david/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-core/2.9.5/a22ac51016944b06fd9ffbc9541c6e7ce5eea117/jackson-core-2.9.5.jar!/"/>
         </CLASSES>
         <JAVADOC/>
         <SOURCES>
-          <root url="jar:///home/david/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-core/2.9.4/852f37ebcdd5f504a9d6bbf967cf84fb5984294d/jackson-core-2.9.4-sources.jar!/"/>
+          <root url="jar:///home/david/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-core/2.9.5/739ee692a42ee8c0cf9d3c504f0df568797b0a85/jackson-core-2.9.5-sources.jar!/"/>
         </SOURCES>
       </library>
     </orderEntry>
     <orderEntry type="module-library" scope="RUNTIME">
       <library>
         <CLASSES>
-          <root url="jar:///home/david/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib-jdk8/1.2.31/f916048adc012c9342b796a5f84c0ac6205abcac/kotlin-stdlib-jdk8-1.2.31.jar!/"/>
+          <root url="jar:///home/david/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib-jdk8/1.2.31/50094b02ec8a4c2e4444073c722bb56c8a52b83c/kotlin-stdlib-jdk8-1.2.31.jar!/"/>
         </CLASSES>
         <JAVADOC/>
         <SOURCES>
-          <root url="jar:///home/david/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib-jdk8/1.2.31/3a00be60f8d3eb8dfe0bedd9a174cf2948138287/kotlin-stdlib-jdk8-1.2.31-sources.jar!/"/>
+          <root url="jar:///home/david/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib-jdk8/1.2.31/6b2b6e5fb34d9171d936033347431d89443373b0/kotlin-stdlib-jdk8-1.2.31-sources.jar!/"/>
         </SOURCES>
       </library>
     </orderEntry>
     <orderEntry type="module-library" scope="RUNTIME">
       <library>
         <CLASSES>
-          <root url="jar:///home/david/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib-jdk7/1.2.31/ca12c47fc1e3a7316067b2a51e2f214745ebf8c5/kotlin-stdlib-jdk7-1.2.31.jar!/"/>
+          <root url="jar:///home/david/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib-jdk7/1.2.31/95d6a67e8787280a82a2059e54e4db7ac6cfe74/kotlin-stdlib-jdk7-1.2.31.jar!/"/>
         </CLASSES>
         <JAVADOC/>
         <SOURCES>
-          <root url="jar:///home/david/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib-jdk7/1.2.31/49e090644e085340bb9afc7d554b2df8394bb36c/kotlin-stdlib-jdk7-1.2.31-sources.jar!/"/>
+          <root url="jar:///home/david/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib-jdk7/1.2.31/e20207522f93e04fbbf006b141e924d211335564/kotlin-stdlib-jdk7-1.2.31-sources.jar!/"/>
         </SOURCES>
       </library>
     </orderEntry>
     <orderEntry type="module-library" scope="RUNTIME">
       <library>
         <CLASSES>
-          <root url="jar:///home/david/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/1.2.31/2dfac33f8b4e92c9dd1422cd286834701a6f6d6/kotlin-stdlib-1.2.31.jar!/"/>
+          <root url="jar:///home/david/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/1.2.31/153dcd9ed9db246a7e36f4d7609e2a9f4718c674/kotlin-stdlib-1.2.31.jar!/"/>
         </CLASSES>
         <JAVADOC/>
         <SOURCES>
-          <root url="jar:///home/david/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/1.2.31/50878770fd010106bd91f2f5c3b7904a56883ec3/kotlin-stdlib-1.2.31-sources.jar!/"/>
-        </SOURCES>
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library" scope="RUNTIME">
-      <library>
-        <CLASSES>
-          <root url="jar:///home/david/.gradle/caches/modules-2/files-2.1/javax.activation/activation/1.1/e6cb541461c2834bdea3eb920f1884d1eb508b50/activation-1.1.jar!/"/>
-        </CLASSES>
-        <JAVADOC/>
-        <SOURCES>
-          <root url="jar:///home/david/.gradle/caches/modules-2/files-2.1/javax.activation/activation/1.1/3697e9f67a2ed7ac5f589cff30f21173299440/activation-1.1-sources.jar!/"/>
+          <root url="jar:///home/david/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/1.2.31/a1a0b714cb760f9bd0f4f9d04915c1748eaefc64/kotlin-stdlib-1.2.31-sources.jar!/"/>
         </SOURCES>
       </library>
     </orderEntry>
@@ -1208,6 +1190,17 @@
         <JAVADOC/>
         <SOURCES>
           <root url="jar:///home/david/.gradle/caches/modules-2/files-2.1/commons-collections/commons-collections/3.2.2/78c50ebda5784937ca1615fc0e1d0cb35857d572/commons-collections-3.2.2-sources.jar!/"/>
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" scope="RUNTIME">
+      <library>
+        <CLASSES>
+          <root url="jar:///home/david/.gradle/caches/modules-2/files-2.1/javax.activation/activation/1.1/e6cb541461c2834bdea3eb920f1884d1eb508b50/activation-1.1.jar!/"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES>
+          <root url="jar:///home/david/.gradle/caches/modules-2/files-2.1/javax.activation/activation/1.1/3697e9f67a2ed7ac5f589cff30f21173299440/activation-1.1-sources.jar!/"/>
         </SOURCES>
       </library>
     </orderEntry>
@@ -1269,7 +1262,7 @@
     <orderEntry type="module-library" scope="RUNTIME">
       <library>
         <CLASSES>
-          <root url="jar://$MODULE_DIR$/exposed-0.10.1.jar!/"/>
+          <root url="jar:///home/david/dev/ERP/lib/exposed-0.10.3-SNAPSHOT.jar!/"/>
         </CLASSES>
         <JAVADOC/>
         <SOURCES/>
@@ -1288,24 +1281,6 @@
       <library>
         <CLASSES>
           <root url="file:///home/david/dev/ERP/subprojects/software.hsharp.business.models/bin"/>
-        </CLASSES>
-        <JAVADOC/>
-        <SOURCES/>
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library" scope="RUNTIME">
-      <library>
-        <CLASSES>
-          <root url="jar:///home/david/dev/ERP/subprojects/org.adempiere.base/bsh-2.0b6.jar!/"/>
-        </CLASSES>
-        <JAVADOC/>
-        <SOURCES/>
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library" scope="RUNTIME">
-      <library>
-        <CLASSES>
-          <root url="jar:///home/david/dev/ERP/subprojects/org.adempiere.base/cron4j-2.2.5.jar!/"/>
         </CLASSES>
         <JAVADOC/>
         <SOURCES/>
@@ -1350,7 +1325,34 @@
     <orderEntry type="module-library" scope="RUNTIME">
       <library>
         <CLASSES>
-          <root url="file:///home/david/dev/ERP/subprojects/org.adempiere.base/bin"/>
+          <root url="file:///home/david/dev/ERP/subprojects/org.compiere.util/bin"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES/>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" scope="RUNTIME">
+      <library>
+        <CLASSES>
+          <root url="file:///home/david/dev/ERP/subprojects/org.idempiere.orm/bin"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES/>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" scope="RUNTIME">
+      <library>
+        <CLASSES>
+          <root url="file:///home/david/dev/ERP/subprojects/org.compiere.orm/bin"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES/>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" scope="RUNTIME">
+      <library>
+        <CLASSES>
+          <root url="file:///home/david/dev/ERP/subprojects/org.compiere.crm/bin"/>
         </CLASSES>
         <JAVADOC/>
         <SOURCES/>
@@ -1358,11 +1360,14 @@
     </orderEntry>
     <orderEntry module-name="software.hsharp.business.models" type="module" scope="TEST"/>
     <orderEntry module-name="software.hsharp.core.models" type="module" scope="TEST"/>
-    <orderEntry module-name="org.adempiere.base" type="module" scope="TEST"/>
+    <orderEntry module-name="org.compiere.crm" type="module" scope="TEST"/>
     <orderEntry module-name="org.idempiere.icommon" type="module" scope="TEST"/>
     <orderEntry module-name="software.hsharp.api.icommon" type="module" scope="TEST"/>
     <orderEntry module-name="org.idempiere.common" type="module" scope="TEST"/>
     <orderEntry module-name="org.compiere.model" type="module" scope="TEST"/>
+    <orderEntry module-name="org.idempiere.orm" type="module" scope="TEST"/>
+    <orderEntry module-name="org.compiere.util" type="module" scope="TEST"/>
+    <orderEntry module-name="org.compiere.orm" type="module" scope="TEST"/>
     <orderEntry type="module-library" scope="TEST">
       <library>
         <CLASSES>
@@ -1432,11 +1437,11 @@
     <orderEntry type="module-library" scope="TEST">
       <library>
         <CLASSES>
-          <root url="jar:///home/david/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-osgi-bundle/1.2.31/4c1a4b78fd0777cb29bf3ff89c8053ef6dbfd3fc/kotlin-osgi-bundle-1.2.31.jar!/"/>
+          <root url="jar:///home/david/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-osgi-bundle/1.2.40/a5055bc5900c9141cbef2c11e8561f55ce3f2de1/kotlin-osgi-bundle-1.2.40.jar!/"/>
         </CLASSES>
         <JAVADOC/>
         <SOURCES>
-          <root url="jar:///home/david/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-osgi-bundle/1.2.31/4482b73ba99ec897d089e2e375533407801fc2dc/kotlin-osgi-bundle-1.2.31-sources.jar!/"/>
+          <root url="jar:///home/david/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-osgi-bundle/1.2.40/9ecaf8e24d4d8a5f1747ceadc2d8edf0b79fa6b3/kotlin-osgi-bundle-1.2.40-sources.jar!/"/>
         </SOURCES>
       </library>
     </orderEntry>
@@ -1520,11 +1525,11 @@
     <orderEntry type="module-library" scope="TEST">
       <library>
         <CLASSES>
-          <root url="jar:///home/david/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.module/jackson-module-kotlin/2.9.4.1/6542720c526997e74bb4220b3925e6c12a24b631/jackson-module-kotlin-2.9.4.1.jar!/"/>
+          <root url="jar:///home/david/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.module/jackson-module-kotlin/2.9.5/3e73e80ff0285a776954252f61c22e4059ee5267/jackson-module-kotlin-2.9.5.jar!/"/>
         </CLASSES>
         <JAVADOC/>
         <SOURCES>
-          <root url="jar:///home/david/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.module/jackson-module-kotlin/2.9.4.1/8a4bb5bed5ec52e20ba09ad4ebd7af8b0836ecf5/jackson-module-kotlin-2.9.4.1-sources.jar!/"/>
+          <root url="jar:///home/david/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.module/jackson-module-kotlin/2.9.5/e6185878f9870d64b1de64f2d328467a49a02ec1/jackson-module-kotlin-2.9.5-sources.jar!/"/>
         </SOURCES>
       </library>
     </orderEntry>
@@ -1542,11 +1547,11 @@
     <orderEntry type="module-library" scope="TEST">
       <library>
         <CLASSES>
-          <root url="jar:///home/david/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-test-junit/1.2.31/f5e0765d2884778c25c3cdf5c792657d112c81d1/kotlin-test-junit-1.2.31.jar!/"/>
+          <root url="jar:///home/david/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-test-junit/1.2.40/2db54d5a68dd6feecffdb3dd70511fe923039ac7/kotlin-test-junit-1.2.40.jar!/"/>
         </CLASSES>
         <JAVADOC/>
         <SOURCES>
-          <root url="jar:///home/david/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-test-junit/1.2.31/446f024042222b1c7bc08a890bda91b8a0b0d4e1/kotlin-test-junit-1.2.31-sources.jar!/"/>
+          <root url="jar:///home/david/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-test-junit/1.2.40/53c9259d5f2f4e179e8a45d7c741324c3d19821b/kotlin-test-junit-1.2.40-sources.jar!/"/>
         </SOURCES>
       </library>
     </orderEntry>
@@ -1558,6 +1563,28 @@
         <JAVADOC/>
         <SOURCES>
           <root url="jar:///home/david/.gradle/caches/modules-2/files-2.1/junit/junit/4.12/a6c32b40bf3d76eca54e3c601e5d1470c86fcdfa/junit-4.12-sources.jar!/"/>
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" scope="TEST">
+      <library>
+        <CLASSES>
+          <root url="jar:///home/david/.gradle/caches/modules-2/files-2.1/com.mchange/c3p0/0.9.5.2/5f86cb6130bc6e8475615ed82d5b5e6fb226a86a/c3p0-0.9.5.2.jar!/"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES>
+          <root url="jar:///home/david/.gradle/caches/modules-2/files-2.1/com.mchange/c3p0/0.9.5.2/147cbd16cde386d978a7d5f23f42778102a08cfc/c3p0-0.9.5.2-sources.jar!/"/>
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" scope="TEST">
+      <library>
+        <CLASSES>
+          <root url="jar:///home/david/.gradle/caches/modules-2/files-2.1/org.jfree/jcommon/1.0.24/d5016f7703896c38f9e511f8a9edda2585cbac8b/jcommon-1.0.24.jar!/"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES>
+          <root url="jar:///home/david/.gradle/caches/modules-2/files-2.1/org.jfree/jcommon/1.0.24/12c5b3487ca24122c2cef863ab3be32cda3d7330/jcommon-1.0.24-sources.jar!/"/>
         </SOURCES>
       </library>
     </orderEntry>
@@ -1674,11 +1701,11 @@
     <orderEntry type="module-library" scope="TEST">
       <library>
         <CLASSES>
-          <root url="jar:///home/david/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-databind/2.9.4/498bbc3b94f566982c7f7c6d4d303fce365529be/jackson-databind-2.9.4.jar!/"/>
+          <root url="jar:///home/david/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-databind/2.9.5/3490508379d065fe3fcb80042b62f630f7588606/jackson-databind-2.9.5.jar!/"/>
         </CLASSES>
         <JAVADOC/>
         <SOURCES>
-          <root url="jar:///home/david/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-databind/2.9.4/36aa90e99b8c73d43e66daadf50a96b83cbd09d3/jackson-databind-2.9.4-sources.jar!/"/>
+          <root url="jar:///home/david/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-databind/2.9.5/7f93f92d7ff619c1a49b5442ba77c0c297a88019/jackson-databind-2.9.5-sources.jar!/"/>
         </SOURCES>
       </library>
     </orderEntry>
@@ -1696,11 +1723,11 @@
     <orderEntry type="module-library" scope="TEST">
       <library>
         <CLASSES>
-          <root url="jar:///home/david/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-reflect/1.2.31/3159ff5936aa570a90050d385cb717fbb6c1723a/kotlin-reflect-1.2.31.jar!/"/>
+          <root url="jar:///home/david/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-reflect/1.2.21/3159ff5936aa570a90050d385cb717fbb6c1723a/kotlin-reflect-1.2.21.jar!/"/>
         </CLASSES>
         <JAVADOC/>
         <SOURCES>
-          <root url="jar:///home/david/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-reflect/1.2.31/3b26eda48f049afcd1a84e78797a558d0764e471/kotlin-reflect-1.2.31-sources.jar!/"/>
+          <root url="jar:///home/david/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-reflect/1.2.21/3b26eda48f049afcd1a84e78797a558d0764e471/kotlin-reflect-1.2.21-sources.jar!/"/>
         </SOURCES>
       </library>
     </orderEntry>
@@ -1712,28 +1739,6 @@
         <JAVADOC/>
         <SOURCES>
           <root url="jar:///home/david/.gradle/caches/modules-2/files-2.1/org.osgi/org.osgi.service.event/1.3.1/51e0550fd2c318084082698d7b9094f0f14e9ba9/org.osgi.service.event-1.3.1-sources.jar!/"/>
-        </SOURCES>
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library" scope="TEST">
-      <library>
-        <CLASSES>
-          <root url="jar:///home/david/.gradle/caches/modules-2/files-2.1/org.passay/passay/1.3.0/af6c73aef2f5d0ac09bd7db583c79f8a467035d1/passay-1.3.0.jar!/"/>
-        </CLASSES>
-        <JAVADOC/>
-        <SOURCES>
-          <root url="jar:///home/david/.gradle/caches/modules-2/files-2.1/org.passay/passay/1.3.0/806b007ce4af903c1b3c0e8aef133ea00b79e769/passay-1.3.0-sources.jar!/"/>
-        </SOURCES>
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library" scope="TEST">
-      <library>
-        <CLASSES>
-          <root url="jar:///home/david/.gradle/caches/modules-2/files-2.1/javax.mail/mail/1.4.7/9add058589d5d85adeb625859bf2c5eeaaedf12d/mail-1.4.7.jar!/"/>
-        </CLASSES>
-        <JAVADOC/>
-        <SOURCES>
-          <root url="jar:///home/david/.gradle/caches/modules-2/files-2.1/javax.mail/mail/1.4.7/bb76e5678cdb3e7488bb5578a8461e82fba5fe36/mail-1.4.7-sources.jar!/"/>
         </SOURCES>
       </library>
     </orderEntry>
@@ -1784,6 +1789,17 @@
     <orderEntry type="module-library" scope="TEST">
       <library>
         <CLASSES>
+          <root url="jar:///home/david/.gradle/caches/modules-2/files-2.1/javax.mail/mail/1.4.7/9add058589d5d85adeb625859bf2c5eeaaedf12d/mail-1.4.7.jar!/"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES>
+          <root url="jar:///home/david/.gradle/caches/modules-2/files-2.1/javax.mail/mail/1.4.7/bb76e5678cdb3e7488bb5578a8461e82fba5fe36/mail-1.4.7-sources.jar!/"/>
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" scope="TEST">
+      <library>
+        <CLASSES>
           <root url="jar:///home/david/.gradle/caches/modules-2/files-2.1/org.hamcrest/hamcrest-core/1.3/42a25dc3219429f0e5d060061f71acb49bf010a0/hamcrest-core-1.3.jar!/"/>
         </CLASSES>
         <JAVADOC/>
@@ -1795,11 +1811,33 @@
     <orderEntry type="module-library" scope="TEST">
       <library>
         <CLASSES>
-          <root url="jar:///home/david/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-test/1.2.31/2bb6ea8d314aa0c96bf62838a2b11c79240e09a9/kotlin-test-1.2.31.jar!/"/>
+          <root url="jar:///home/david/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-test-annotations-common/1.2.40/2d4a60c84c93f625f5bffe4cc76b21b243688f5a/kotlin-test-annotations-common-1.2.40.jar!/"/>
         </CLASSES>
         <JAVADOC/>
         <SOURCES>
-          <root url="jar:///home/david/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-test/1.2.31/2ac9abc8f3ecc59ff5f0dcb09ea0990b6caf8907/kotlin-test-1.2.31-sources.jar!/"/>
+          <root url="jar:///home/david/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-test-annotations-common/1.2.40/1e0c78e23ec7ee0cc1d1b6485d213337f8cf67ea/kotlin-test-annotations-common-1.2.40-sources.jar!/"/>
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" scope="TEST">
+      <library>
+        <CLASSES>
+          <root url="jar:///home/david/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-test/1.2.40/c3f602531da92165d978a139c2953f3acd9f02bf/kotlin-test-1.2.40.jar!/"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES>
+          <root url="jar:///home/david/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-test/1.2.40/d99810aac8d0b8ace89e1679833c1f3be230438d/kotlin-test-1.2.40-sources.jar!/"/>
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" scope="TEST">
+      <library>
+        <CLASSES>
+          <root url="jar:///home/david/.gradle/caches/modules-2/files-2.1/com.mchange/mchange-commons-java/0.2.11/2a6a6c1fe25f28f5a073171956ce6250813467ef/mchange-commons-java-0.2.11.jar!/"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES>
+          <root url="jar:///home/david/.gradle/caches/modules-2/files-2.1/com.mchange/mchange-commons-java/0.2.11/33a53955501fa830ecfc98d6ae611c6dc451946c/mchange-commons-java-0.2.11-sources.jar!/"/>
         </SOURCES>
       </library>
     </orderEntry>
@@ -1883,55 +1921,44 @@
     <orderEntry type="module-library" scope="TEST">
       <library>
         <CLASSES>
-          <root url="jar:///home/david/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-core/2.9.4/a9a71ec1aa37da47db168fede9a4a5fb5e374320/jackson-core-2.9.4.jar!/"/>
+          <root url="jar:///home/david/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-core/2.9.5/a22ac51016944b06fd9ffbc9541c6e7ce5eea117/jackson-core-2.9.5.jar!/"/>
         </CLASSES>
         <JAVADOC/>
         <SOURCES>
-          <root url="jar:///home/david/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-core/2.9.4/852f37ebcdd5f504a9d6bbf967cf84fb5984294d/jackson-core-2.9.4-sources.jar!/"/>
+          <root url="jar:///home/david/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-core/2.9.5/739ee692a42ee8c0cf9d3c504f0df568797b0a85/jackson-core-2.9.5-sources.jar!/"/>
         </SOURCES>
       </library>
     </orderEntry>
     <orderEntry type="module-library" scope="TEST">
       <library>
         <CLASSES>
-          <root url="jar:///home/david/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib-jdk8/1.2.31/f916048adc012c9342b796a5f84c0ac6205abcac/kotlin-stdlib-jdk8-1.2.31.jar!/"/>
+          <root url="jar:///home/david/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib-jdk8/1.2.31/50094b02ec8a4c2e4444073c722bb56c8a52b83c/kotlin-stdlib-jdk8-1.2.31.jar!/"/>
         </CLASSES>
         <JAVADOC/>
         <SOURCES>
-          <root url="jar:///home/david/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib-jdk8/1.2.31/3a00be60f8d3eb8dfe0bedd9a174cf2948138287/kotlin-stdlib-jdk8-1.2.31-sources.jar!/"/>
+          <root url="jar:///home/david/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib-jdk8/1.2.31/6b2b6e5fb34d9171d936033347431d89443373b0/kotlin-stdlib-jdk8-1.2.31-sources.jar!/"/>
         </SOURCES>
       </library>
     </orderEntry>
     <orderEntry type="module-library" scope="TEST">
       <library>
         <CLASSES>
-          <root url="jar:///home/david/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib-jdk7/1.2.31/ca12c47fc1e3a7316067b2a51e2f214745ebf8c5/kotlin-stdlib-jdk7-1.2.31.jar!/"/>
+          <root url="jar:///home/david/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib-jdk7/1.2.31/95d6a67e8787280a82a2059e54e4db7ac6cfe74/kotlin-stdlib-jdk7-1.2.31.jar!/"/>
         </CLASSES>
         <JAVADOC/>
         <SOURCES>
-          <root url="jar:///home/david/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib-jdk7/1.2.31/49e090644e085340bb9afc7d554b2df8394bb36c/kotlin-stdlib-jdk7-1.2.31-sources.jar!/"/>
+          <root url="jar:///home/david/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib-jdk7/1.2.31/e20207522f93e04fbbf006b141e924d211335564/kotlin-stdlib-jdk7-1.2.31-sources.jar!/"/>
         </SOURCES>
       </library>
     </orderEntry>
     <orderEntry type="module-library" scope="TEST">
       <library>
         <CLASSES>
-          <root url="jar:///home/david/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/1.2.31/2dfac33f8b4e92c9dd1422cd286834701a6f6d6/kotlin-stdlib-1.2.31.jar!/"/>
+          <root url="jar:///home/david/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/1.2.40/d39920020ab3e74f406a8e142fb94b360f3f80f8/kotlin-stdlib-1.2.40.jar!/"/>
         </CLASSES>
         <JAVADOC/>
         <SOURCES>
-          <root url="jar:///home/david/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/1.2.31/50878770fd010106bd91f2f5c3b7904a56883ec3/kotlin-stdlib-1.2.31-sources.jar!/"/>
-        </SOURCES>
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library" scope="TEST">
-      <library>
-        <CLASSES>
-          <root url="jar:///home/david/.gradle/caches/modules-2/files-2.1/javax.activation/activation/1.1/e6cb541461c2834bdea3eb920f1884d1eb508b50/activation-1.1.jar!/"/>
-        </CLASSES>
-        <JAVADOC/>
-        <SOURCES>
-          <root url="jar:///home/david/.gradle/caches/modules-2/files-2.1/javax.activation/activation/1.1/3697e9f67a2ed7ac5f589cff30f21173299440/activation-1.1-sources.jar!/"/>
+          <root url="jar:///home/david/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/1.2.40/f30f4d822ac6c4ef7a72c86a11896aab1cdf3a2a/kotlin-stdlib-1.2.40-sources.jar!/"/>
         </SOURCES>
       </library>
     </orderEntry>
@@ -1976,6 +2003,39 @@
         <JAVADOC/>
         <SOURCES>
           <root url="jar:///home/david/.gradle/caches/modules-2/files-2.1/commons-collections/commons-collections/3.2.2/78c50ebda5784937ca1615fc0e1d0cb35857d572/commons-collections-3.2.2-sources.jar!/"/>
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" scope="TEST">
+      <library>
+        <CLASSES>
+          <root url="jar:///home/david/.gradle/caches/modules-2/files-2.1/javax.activation/activation/1.1/e6cb541461c2834bdea3eb920f1884d1eb508b50/activation-1.1.jar!/"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES>
+          <root url="jar:///home/david/.gradle/caches/modules-2/files-2.1/javax.activation/activation/1.1/3697e9f67a2ed7ac5f589cff30f21173299440/activation-1.1-sources.jar!/"/>
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" scope="TEST">
+      <library>
+        <CLASSES>
+          <root url="jar:///home/david/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-test-common/1.2.40/2364922e3ca01d51cad8f585a2c8c8d731bb375a/kotlin-test-common-1.2.40.jar!/"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES>
+          <root url="jar:///home/david/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-test-common/1.2.40/cf1b2dbf4f18e8b36370070d7b79324462678493/kotlin-test-common-1.2.40-sources.jar!/"/>
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" scope="TEST">
+      <library>
+        <CLASSES>
+          <root url="jar:///home/david/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib-common/1.2.40/37abadf1cca4450f39672a80d24a379d2fd06356/kotlin-stdlib-common-1.2.40.jar!/"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES>
+          <root url="jar:///home/david/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib-common/1.2.40/9775a9a5a00ed7f7d9faa89498186f3c838ebb65/kotlin-stdlib-common-1.2.40-sources.jar!/"/>
         </SOURCES>
       </library>
     </orderEntry>
@@ -2037,7 +2097,7 @@
     <orderEntry type="module-library" scope="TEST">
       <library>
         <CLASSES>
-          <root url="jar://$MODULE_DIR$/exposed-0.10.1.jar!/"/>
+          <root url="jar:///home/david/dev/ERP/lib/exposed-0.10.3-SNAPSHOT.jar!/"/>
         </CLASSES>
         <JAVADOC/>
         <SOURCES/>
@@ -2056,24 +2116,6 @@
       <library>
         <CLASSES>
           <root url="file:///home/david/dev/ERP/subprojects/software.hsharp.business.models/bin"/>
-        </CLASSES>
-        <JAVADOC/>
-        <SOURCES/>
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library" scope="TEST">
-      <library>
-        <CLASSES>
-          <root url="jar:///home/david/dev/ERP/subprojects/org.adempiere.base/bsh-2.0b6.jar!/"/>
-        </CLASSES>
-        <JAVADOC/>
-        <SOURCES/>
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library" scope="TEST">
-      <library>
-        <CLASSES>
-          <root url="jar:///home/david/dev/ERP/subprojects/org.adempiere.base/cron4j-2.2.5.jar!/"/>
         </CLASSES>
         <JAVADOC/>
         <SOURCES/>
@@ -2118,7 +2160,34 @@
     <orderEntry type="module-library" scope="TEST">
       <library>
         <CLASSES>
-          <root url="file:///home/david/dev/ERP/subprojects/org.adempiere.base/bin"/>
+          <root url="file:///home/david/dev/ERP/subprojects/org.compiere.util/bin"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES/>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" scope="TEST">
+      <library>
+        <CLASSES>
+          <root url="file:///home/david/dev/ERP/subprojects/org.idempiere.orm/bin"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES/>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" scope="TEST">
+      <library>
+        <CLASSES>
+          <root url="file:///home/david/dev/ERP/subprojects/org.compiere.orm/bin"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES/>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" scope="TEST">
+      <library>
+        <CLASSES>
+          <root url="file:///home/david/dev/ERP/subprojects/org.compiere.crm/bin"/>
         </CLASSES>
         <JAVADOC/>
         <SOURCES/>
