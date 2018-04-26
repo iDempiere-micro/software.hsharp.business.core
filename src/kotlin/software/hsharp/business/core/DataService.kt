@@ -53,6 +53,7 @@ class DataService : IDataService {
 
     override fun getData(
             connection: Connection, tableName: String,
+            columnsRequested : Array<String>?, // null => *
             orderBy : String , // Name
             orderByOrder : String , // ASC | DESC
             offset : Int, // 0
@@ -98,7 +99,12 @@ class DataService : IDataService {
         }
         println ( "count:$count" )
 
-        val sql =  "SELECT * FROM \"${tableName}\" WHERE (ad_client_id = ? OR ad_client_id=0) AND (ad_org_id = ? OR ad_org_id=0) $where_clause LIMIT $limit OFFSET $offset;"
+        var selectPart =
+          if ( columnsRequested == null || columnsRequested!!.count() == 0 )  { "SELECT * " }
+          else
+            { columnsRequested.fold( "SELECT ", { total, next -> "$total \"$next\"," } ).trimEnd(',') }
+
+        val sql =  "$selectPart FROM \"${tableName}\" WHERE (ad_client_id = ? OR ad_client_id=0) AND (ad_org_id = ? OR ad_org_id=0) $where_clause LIMIT $limit OFFSET $offset;"
         println ( "SQL:$sql" )
         val statement = cnn.prepareStatement(sql)
         statement.setInt(1, ad_Client_ID)
