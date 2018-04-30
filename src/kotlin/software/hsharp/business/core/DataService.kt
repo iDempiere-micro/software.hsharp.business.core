@@ -60,11 +60,16 @@ class DataService : IDataService {
         val ctx = Env.getCtx()
         val ad_Client_ID = Env.getAD_Client_ID(ctx)
         val ad_Org_ID = Env.getAD_Org_ID(ctx)
+        val ad_User_ID = Env.getAD_User_ID(ctx)
         val cnn = DB.getConnectionRO()
 
-        var selectPart =
-                "SELECT * "
+        val identitySelect = "SELECT set_user(?)"
+        val identityStatement = cnn.prepareStatement(identitySelect)
+        identityStatement.setInt(1, ad_User_ID)
+        val identityRs = identityStatement.executeQuery()
+        while(identityRs.next()) {}
 
+        val selectPart = "SELECT *"
         val sql =  "$selectPart FROM \"${tableName}\" WHERE (ad_client_id = ? OR ad_client_id=0) AND (ad_org_id = ? OR ad_org_id=0) AND \"${tableName}_id\" = ? "
         println ( "Row SQL:$sql" )
         val statement = cnn.prepareStatement(sql)
