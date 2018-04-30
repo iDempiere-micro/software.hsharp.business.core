@@ -19,6 +19,11 @@ data class GetDataResult(
     }
 }
 
+data class GetRowResult(
+        override val rs: ResultSet?,
+        override val __metadata: IDataSource?,
+        override val __paging: IPaging?) : IGetRowResult
+
 @Component
 class DataService : IDataService {
     override fun getTreeData(connection: Connection, root: ITreeDataDescriptor, orderBy: String, orderByOrder: String, offset: Int, limit: Int, filterName1: String, filterValue1: String, filterName2: String, filterValue2: String): IGetTreeDataResult {
@@ -50,6 +55,28 @@ class DataService : IDataService {
             fields: MutableList<Pair<String, Any>>) : IUpdateDataResult {
         TODO( "Implement update data for iDempiere too" )
     }
+
+    override fun getRow(connection: Connection, tableName: String, id: Int): IGetRowResult {
+        val ctx = Env.getCtx()
+        val ad_Client_ID = Env.getAD_Client_ID(ctx)
+        val ad_Org_ID = Env.getAD_Org_ID(ctx)
+        val cnn = DB.getConnectionRO()
+
+        var selectPart =
+                "SELECT * "
+
+        val sql =  "$selectPart FROM \"${tableName}\" WHERE (ad_client_id = ? OR ad_client_id=0) AND (ad_org_id = ? OR ad_org_id=0) AND \"${tableName}_id\" = ? "
+        println ( "Row SQL:$sql" )
+        val statement = cnn.prepareStatement(sql)
+        statement.setInt(1, ad_Client_ID)
+        statement.setInt(2, ad_Org_ID)
+        statement.setInt(3, id)
+        val rs = statement.executeQuery()
+
+        return GetRowResult( rs = rs, __metadata = null, __paging = null )
+
+    }
+
 
     override fun getData(
             connection: Connection, tableName: String,
