@@ -24,6 +24,17 @@ data class GetRowResult(
         override val __metadata: IDataSource?,
         override val __paging: IPaging?) : IGetRowResult
 
+data class UpdateDataResult(
+        override val id: Int?,
+        override val __metadata: IDataSource?,
+        override val __paging: IPaging?) : IUpdateDataResult {
+    companion object {
+        val empty : IUpdateDataResult
+            get() = UpdateDataResult(null, null, null)
+    }
+}
+
+
 @Component
 class DataService : IDataService {
     override fun getTreeData(connection: Connection, root: ITreeDataDescriptor, orderBy: String, orderByOrder: String, offset: Int, limit: Int, filterName1: String, filterValue1: String, filterName2: String, filterValue2: String): IGetTreeDataResult {
@@ -53,7 +64,42 @@ class DataService : IDataService {
             tableName: String,
             id: Int,
             fields: MutableList<Pair<String, Any>>) : IUpdateDataResult {
-        TODO( "Implement update data for iDempiere too" )
+        val ctx = Env.getCtx()
+        val ad_Client_ID = Env.getAD_Client_ID(ctx)
+        val ad_Org_ID = Env.getAD_Org_ID(ctx)
+        val ad_User_ID = Env.getAD_User_ID(ctx)
+        val cnn = DB.getConnectionRW()
+
+        set_user(cnn, ad_User_ID)
+
+        val sql =
+                ( fields.fold( "UPDATE \"${tableName}\" SET ", { total, next -> total + "${next.first}=?," } ) ).trimEnd(',') +
+                        " WHERE ${tableName}_id = ? RETURNING ${tableName}_id;";
+
+        System.out.println( "SQL:$sql, ID:$id" );
+
+        val statement = cnn.prepareStatement(sql)
+        fields.forEachIndexed { index, value -> statement.setObject( index + 1, value.second ) }
+        statement.setInt(fields.count()+1, id)
+
+        val rs = statement.executeQuery()
+        // cnn.commit() <- auto commit
+
+        var result : Int? = null
+        while (rs.next()) {
+            result = rs.getInt(1)
+        }
+
+        return UpdateDataResult(result, null, null)
+
+    }
+
+    private fun set_user(cnn:Connection, ad_User_ID: Int) {
+        val identitySelect = "SELECT set_user(?)"
+        val identityStatement = cnn.prepareStatement(identitySelect)
+        identityStatement.setInt(1, ad_User_ID)
+        val identityRs = identityStatement.executeQuery()
+        while(identityRs.next()) {}
     }
 
     override fun getRow(connection: Connection, tableName: String, id: Int): IGetRowResult {
@@ -63,11 +109,7 @@ class DataService : IDataService {
         val ad_User_ID = Env.getAD_User_ID(ctx)
         val cnn = DB.getConnectionRO()
 
-        val identitySelect = "SELECT set_user(?)"
-        val identityStatement = cnn.prepareStatement(identitySelect)
-        identityStatement.setInt(1, ad_User_ID)
-        val identityRs = identityStatement.executeQuery()
-        while(identityRs.next()) {}
+        set_user(cnn, ad_User_ID)
 
         val selectPart = "SELECT *"
         val sql =  "$selectPart FROM \"${tableName}\" WHERE (ad_client_id = ? OR ad_client_id=0) AND (ad_org_id = ? OR ad_org_id=0) AND \"${tableName}_id\" = ? "
