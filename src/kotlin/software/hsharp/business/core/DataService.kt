@@ -34,6 +34,15 @@ data class UpdateDataResult(
     }
 }
 
+data class CreateDataResult(
+        override val id: Int?,
+        override val __metadata: IDataSource?,
+        override val __paging: IPaging?) : ICreateDataResult {
+    companion object {
+        val empty : ICreateDataResult
+            get() = CreateDataResult(null, null, null)
+    }
+}
 
 @Component
 class DataService : IDataService {
@@ -56,7 +65,40 @@ class DataService : IDataService {
             tableName: String,
             fields: MutableList<Pair<String, Any>>
     ) : ICreateDataResult {
-        TODO( "Implement create data for iDempiere too" )
+        val ctx = Env.getCtx()
+        val ad_Client_ID = Env.getAD_Client_ID(ctx)
+        val ad_Org_ID = Env.getAD_Org_ID(ctx)
+        val ad_User_ID = Env.getAD_User_ID(ctx)
+        val cnn = DB.getConnectionRW()
+
+        set_user(cnn, ad_User_ID)
+
+        val sql =
+                ( fields.fold( "INSERT INTO \"${tableName}\" (", { total, next -> total + next.first + "," } ) ).trimEnd(',') +
+                        ( fields.fold( " ) VALUES (", { total, _ -> "$total?," } ) ).trimEnd(',') + ") RETURNING ${tableName}_id;";
+
+        System.out.println( "createData SQL:$sql" );
+
+        val statement = cnn.prepareStatement(sql)
+        fields.forEachIndexed { index, value ->
+            try {
+                statement.setObject(index + 1, value.second)
+            } catch ( ex : Exception ) {
+                println( "setting $index . parameter to $value failed" )
+                throw ex
+            }
+        }
+
+        val rs = statement.executeQuery()
+        connection.commit()
+
+        var result : Int? = null
+        while (rs.next()) {
+            result = rs.getInt(1)
+        }
+
+        return CreateDataResult(result, null, null)
+
     }
 
     override fun updateData(
