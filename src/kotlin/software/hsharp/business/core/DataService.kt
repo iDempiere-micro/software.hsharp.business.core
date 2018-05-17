@@ -63,7 +63,8 @@ class DataService : IDataService {
     override fun createData(
             connection: Connection,
             tableName: String,
-            fields: MutableList<Pair<String, Any>>
+            fields: MutableList<Pair<String, Any>>,
+            anonymous_call : Boolean
     ) : ICreateDataResult {
         val ctx = Env.getCtx()
         val ad_Client_ID = Env.getAD_Client_ID(ctx)
@@ -105,7 +106,9 @@ class DataService : IDataService {
             connection: Connection,
             tableName: String,
             id: Int,
-            fields: MutableList<Pair<String, Any>>) : IUpdateDataResult {
+            fields: MutableList<Pair<String, Any>>,
+            anonymous_call : Boolean
+    ) : IUpdateDataResult {
         val ctx = Env.getCtx()
         val ad_Client_ID = Env.getAD_Client_ID(ctx)
         val ad_Org_ID = Env.getAD_Org_ID(ctx)
@@ -144,7 +147,12 @@ class DataService : IDataService {
         while(identityRs.next()) {}
     }
 
-    override fun getRow(connection: Connection, tableName: String, id: Int): IGetRowResult {
+    override fun getRow(
+            connection: Connection,
+            tableName: String,
+            id: Int,
+            anonymous_call : Boolean
+    ): IGetRowResult {
         val ctx = Env.getCtx()
         val ad_Client_ID = Env.getAD_Client_ID(ctx)
         val ad_Org_ID = Env.getAD_Org_ID(ctx)
@@ -177,7 +185,8 @@ class DataService : IDataService {
             filterName1: String, // Name
             filterValue1: String, // Franta
             filterName2: String, // LastName
-            filterValue2: String // Vokurka
+            filterValue2: String, // Vokurka
+            anonymous_call : Boolean
     ): IGetDataResult {
         val ctx = Env.getCtx()
         val ad_Client_ID = Env.getAD_Client_ID(ctx)
