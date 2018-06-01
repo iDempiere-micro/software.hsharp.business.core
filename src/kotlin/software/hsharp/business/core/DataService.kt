@@ -162,12 +162,13 @@ class DataService : IDataService {
         set_user(cnn, ad_User_ID)
 
         val selectPart = "SELECT *"
-        val sql =  "$selectPart FROM \"${tableName}\" WHERE (ad_client_id = ? OR ad_client_id=0) AND (ad_org_id = ? OR ad_org_id=0) AND \"${tableName}_id\" = ? "
+        val sql =  "$selectPart, set_user(?) FROM \"${tableName}\" WHERE (ad_client_id = ? OR ad_client_id=0) AND (ad_org_id = ? OR ad_org_id=0) AND \"${tableName}_id\" = ? "
         println ( "Row SQL:$sql" )
         val statement = cnn.prepareStatement(sql)
-        statement.setInt(1, ad_Client_ID)
-        statement.setInt(2, ad_Org_ID)
-        statement.setInt(3, id)
+        statement.setInt(1, ad_User_ID)
+        statement.setInt(2, ad_Client_ID)
+        statement.setInt(3, ad_Org_ID)
+        statement.setInt(4, id)
         val rs = statement.executeQuery()
 
         return GetRowResult( rs = rs, __metadata = null, __paging = null )
@@ -191,6 +192,7 @@ class DataService : IDataService {
         val ctx = Env.getCtx()
         val ad_Client_ID = Env.getAD_Client_ID(ctx)
         val ad_Org_ID = Env.getAD_Org_ID(ctx)
+        val ad_User_ID = Env.getAD_User_ID(ctx)
         val cnn = DB.getConnectionRO()
         var count = 0
 
@@ -208,11 +210,12 @@ class DataService : IDataService {
                     ""
                 }
 
-        val sql_count = "SELECT COUNT(*) FROM \"${tableName}\" WHERE (ad_client_id = ? OR ad_client_id=0) AND (ad_org_id = ? OR ad_org_id=0) $where_clause"
+        val sql_count = "SELECT COUNT(*), set_user(?) FROM \"${tableName}\" WHERE (ad_client_id = ? OR ad_client_id=0) AND (ad_org_id = ? OR ad_org_id=0) $where_clause"
         println ( "SQL (sql_count):$sql_count" )
         val statement_count = cnn.prepareStatement(sql_count)
-        statement_count.setInt(1, ad_Client_ID)
-        statement_count.setInt(2, ad_Org_ID)
+        statement_count.setInt(1, ad_User_ID)
+        statement_count.setInt(2, ad_Client_ID)
+        statement_count.setInt(3, ad_Org_ID)
         if ( filterName1 != "" ) {
             statement_count.setString( 3, filterValue1 );
             if ( filterName2 != "" ) { statement_count.setString( 4, filterValue2 )  }
@@ -229,11 +232,12 @@ class DataService : IDataService {
           else
             { columnsRequested.fold( "SELECT ", { total, next -> "$total \"$next\"," } ).trimEnd(',') }
 
-        val sql =  "$selectPart FROM \"${tableName}\" WHERE (ad_client_id = ? OR ad_client_id=0) AND (ad_org_id = ? OR ad_org_id=0) $where_clause LIMIT $limit OFFSET $offset;"
+        val sql =  "$selectPart, set_user(?)  FROM \"${tableName}\" WHERE (ad_client_id = ? OR ad_client_id=0) AND (ad_org_id = ? OR ad_org_id=0) $where_clause LIMIT $limit OFFSET $offset;"
         println ( "SQL:$sql" )
         val statement = cnn.prepareStatement(sql)
-        statement.setInt(1, ad_Client_ID)
-        statement.setInt(2, ad_Org_ID)
+        statement.setInt(1, ad_User_ID)
+        statement.setInt(2, ad_Client_ID)
+        statement.setInt(3, ad_Org_ID)
         if ( filterName1 != "" ) {
             statement.setString( 3, filterValue1 );
             if ( filterName2 != "" ) { statement.setString( 4, filterValue2 )  }
