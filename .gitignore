@@ -114,3 +114,7 @@ generated
 target
 
 **/bin/**
+
+Secrets.kt
+bin_test/
+
