@@ -16,6 +16,8 @@ import org.osgi.service.component.annotations.Component
 import org.osgi.service.component.annotations.Reference
 import software.hsharp.core.models.*
 import software.hsharp.core.util.Paging
+import software.hsharp.core.utils.parse
+import java.io.Serializable
 import java.sql.Connection
 import java.sql.ResultSet
 
@@ -61,7 +63,8 @@ data class CreateDataResult(
 
 data class ExecuteJavaProcessResult(
         val message : String?,
-        val success : Boolean
+        val success : Boolean,
+        val result : Serializable?
 )
 
 @Component
@@ -79,19 +82,22 @@ class DataService : IDataService {
 
         set_user(cnn, ad_User_ID)
 
-        val parameters : Array<ProcessInfoParameter> = arrayOf(
+        var parameters : MutableList<ProcessInfoParameter> = mutableListOf(
                 ProcessInfoParameter( "AD_Client_ID", ad_Client_ID.toBigDecimal(), null, null, null ),
                 ProcessInfoParameter( "AD_Org_ID", ad_Org_ID.toBigDecimal(), null, null, null )
         )
+        val bodyParams = parse(jsonBody)
+        parameters
+                .addAll( 2, bodyParams.map { ProcessInfoParameter(  it.first, it.second, null, null, null ) } )
 
         val processInfo = ProcessInfo("Execute Java Process", 0)
         processInfo.aD_Client_ID = ad_Client_ID
         processInfo.aD_User_ID = ad_User_ID
-        processInfo.parameter = parameters
+        processInfo.parameter = parameters.toTypedArray()
         processInfo.className = procName
         val m_trx = Trx.get(Trx.createTrxName("ExecuteJavaProcess"), true)
         val success = ProcessUtil.startJavaProcess(ctx, processInfo, m_trx, false)
-        val result = ExecuteJavaProcessResult( processInfo.summary, success )
+        val result = ExecuteJavaProcessResult( processInfo.summary, success, processInfo.serializableObject )
         val mapper = ObjectMapper().registerModule(KotlinModule())
         return mapper.writeValueAsString(result)
     }
@@ -102,9 +108,14 @@ class DataService : IDataService {
     override val name: String
         get() = "iDempiere Data Service"
 
+    private fun getType(next: Pair<String, Any>, table: IDataTable): String {
+        return table.columns.find({ it.columnName == next.first })!!.columnType
+    }
+
     override fun createData(
             connection: Connection,
             tableName: String,
+            table: IDataTable?,
             fields: MutableList<Pair<String, Any>>,
             anonymous_call : Boolean
     ) : ICreateDataResult {
@@ -118,7 +129,9 @@ class DataService : IDataService {
 
         val sql =
                 ( fields.fold( "INSERT INTO \"${tableName}\" ( \"${tableName}_id\",", { total, next -> total + next.first + "," } ) ) +
-                        ( fields.fold( "ad_client_id, ad_org_id ) VALUES ( (SELECT COALESCE(MAX(\"${tableName}_id\"),0) + 1 FROM \"${tableName}\" ),", { total, _ -> "$total?," } ) ) + " ?, ?) RETURNING ${tableName}_id;";
+                        ( fields.fold(
+                                "ad_client_id, ad_org_id, updatedby, updated, createdby, created ) VALUES ( (SELECT COALESCE(MAX(\"${tableName}_id\"),0) + 1 FROM \"${tableName}\" ),",
+                                { total, next -> "${total}CAST(? AS ${getType(next, table!!)})," } ) ) + " ?, ?, ?, statement_timestamp(), ?, statement_timestamp()) RETURNING ${tableName}_id;";
 
         System.out.println( "createData SQL:$sql" );
 
@@ -134,6 +147,8 @@ class DataService : IDataService {
         val fieldsCount = fields.count()
         statement.setInt(fieldsCount + 1, ad_Client_ID)
         statement.setInt(fieldsCount + 2, ad_Org_ID)
+        statement.setInt(fieldsCount + 3, ad_User_ID)
+        statement.setInt(fieldsCount + 4, ad_User_ID)
 
         val rs = statement.executeQuery()
         connection.commit()
@@ -144,7 +159,6 @@ class DataService : IDataService {
         }
 
         return CreateDataResult(result, null, null)
-
     }
 
     override fun updateData(
