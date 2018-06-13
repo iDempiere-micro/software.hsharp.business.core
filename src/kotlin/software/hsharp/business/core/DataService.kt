@@ -99,7 +99,7 @@ class DataService : IDataService {
         val success = ProcessUtil.startJavaProcess(ctx, processInfo, m_trx, false)
         val result = ExecuteJavaProcessResult( processInfo.summary, success, processInfo.serializableObject )
         val mapper = ObjectMapper().registerModule(KotlinModule())
-        return mapper.writeValueAsString(result)
+        return mapper.writeValueAsString(processInfo.serializableObject)
     }
 
     override fun getSchemasSupported(connection:Connection) : Array<String> {
