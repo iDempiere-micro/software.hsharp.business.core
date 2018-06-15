@@ -16,7 +16,7 @@ import org.osgi.service.component.annotations.Component
 import org.osgi.service.component.annotations.Reference
 import software.hsharp.core.models.*
 import software.hsharp.core.util.Paging
-import software.hsharp.core.utils.parse
+import software.hsharp.core.util.parse
 import java.io.Serializable
 import java.sql.Connection
 import java.sql.ResultSet
