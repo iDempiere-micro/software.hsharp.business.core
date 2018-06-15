@@ -109,7 +109,8 @@ class DataService : IDataService {
         get() = "iDempiere Data Service"
 
     private fun getType(next: Pair<String, Any>, table: IDataTable): String {
-        return table.columns.find({ it.columnName == next.first })!!.columnType
+        println( "getting type from $table table for $next" )
+        return table.columns.find({ it.columnName.toLowerCase() == next.first.toLowerCase() })!!.columnType
     }
 
     override fun createData(
