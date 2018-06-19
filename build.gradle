@@ -1,6 +1,6 @@
 dependencies {
     //compile files('./exposed-0.10.1.jar')
-    compile files('../../lib/exposed-0.10.3-SNAPSHOT.jar')
+    compile files('../../lib/exposed-0.10.3.jar')
 
     // https://mvnrepository.com/artifact/joda-time/joda-time
     compile group: 'joda-time', name: 'joda-time', version: '2.9.9'

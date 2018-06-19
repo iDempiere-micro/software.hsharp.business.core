@@ -631,7 +631,7 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar:///home/david/dev/biggercompany/erp/lib/exposed-0.10.3-SNAPSHOT.jar!/"/>
+          <root url="jar:///home/david/dev/biggercompany/erp/lib/exposed-0.10.3.jar!/"/>
         </CLASSES>
         <JAVADOC/>
         <SOURCES/>
