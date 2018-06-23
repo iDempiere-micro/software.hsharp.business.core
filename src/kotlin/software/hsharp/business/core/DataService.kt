@@ -234,9 +234,11 @@ class DataService : IDataService {
         statement.setInt(2, ad_Client_ID)
         statement.setInt(3, ad_Org_ID)
         statement.setInt(4, id)
+        println ( "Row ad_User_ID:$ad_User_ID ad_Client_ID:$ad_Client_ID ad_Org_ID:$ad_Org_ID id:$id" )
         val rs = statement.executeQuery()
 
         val table = MTable.get( ctx, tableName )
+        println( "Row table:$table" )
         if ( table == null ) {
             return GetRowResult( rs = rs, __metadata = null, __paging = null )
         } else {
@@ -282,7 +284,9 @@ class DataService : IDataService {
                     ""
                 }
 
-        val sql_count = "SELECT COUNT(*), set_user(?) FROM \"${tableName}\" WHERE (ad_client_id = ? OR ad_client_id=0) AND (ad_org_id = ? OR ad_org_id=0) $where_clause"
+        val tableName_lowerCase = tableName.toLowerCase()
+
+        val sql_count = "SELECT COUNT(*), set_user(?) FROM \"${tableName_lowerCase}\" WHERE (ad_client_id = ? OR ad_client_id=0) AND (ad_org_id = ? OR ad_org_id=0) $where_clause"
         println ( "SQL (sql_count):$sql_count" )
         val statement_count = cnn.prepareStatement(sql_count)
         statement_count.setInt(1, ad_User_ID)
@@ -305,7 +309,7 @@ class DataService : IDataService {
             { columnsRequested.fold( "SELECT ", { total, next -> "$total \"$next\"," } ).trimEnd(',') }
 
         val sql =
-                "$selectPart, set_user(?)  FROM \"${tableName}\" WHERE (ad_client_id = ? OR ad_client_id=0) AND (ad_org_id = ? OR ad_org_id=0) $where_clause" +
+                "$selectPart, set_user(?)  FROM \"${tableName_lowerCase}\" WHERE (ad_client_id = ? OR ad_client_id=0) AND (ad_org_id = ? OR ad_org_id=0) $where_clause" +
                 if ( orderBy != "" ) {
                     " ORDER BY \"$orderBy\"" + if ( orderByOrder.toLowerCase() == "desc" ) { " desc" } else { "" }
                 } else { " ORDER BY 1" } +
