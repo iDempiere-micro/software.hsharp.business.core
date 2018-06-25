@@ -128,11 +128,13 @@ class DataService : IDataService {
 
         set_user(cnn, ad_User_ID)
 
+        val tableName_lowerCase = tableName.toLowerCase()
+
         val sql =
-                ( fields.fold( "INSERT INTO \"${tableName}\" ( \"${tableName}_id\",", { total, next -> total + next.first + "," } ) ) +
+                ( fields.fold( "INSERT INTO \"${tableName_lowerCase}\" ( \"${tableName_lowerCase}_id\",", { total, next -> total + next.first + "," } ) ) +
                         ( fields.fold(
-                                "ad_client_id, ad_org_id, updatedby, updated, createdby, created ) VALUES ( (SELECT COALESCE(MAX(\"${tableName}_id\"),0) + 1 FROM \"${tableName}\" ),",
-                                { total, next -> "${total}CAST(? AS ${getType(next, table!!)})," } ) ) + " ?, ?, ?, statement_timestamp(), ?, statement_timestamp()) RETURNING ${tableName}_id;";
+                                "ad_client_id, ad_org_id, updatedby, updated, createdby, created ) VALUES ( (SELECT COALESCE(MAX(\"${tableName_lowerCase}_id\"),0) + 1 FROM \"${tableName_lowerCase}\" ),",
+                                { total, next -> "${total}CAST(? AS ${getType(next, table!!)})," } ) ) + " ?, ?, ?, statement_timestamp(), ?, statement_timestamp()) RETURNING ${tableName_lowerCase}_id;";
 
         System.out.println( "createData SQL:$sql" );
 
@@ -177,9 +179,11 @@ class DataService : IDataService {
 
         set_user(cnn, ad_User_ID)
 
+        val tableName_lowerCase = tableName.toLowerCase()
+
         val sql =
-                ( fields.fold( "UPDATE \"${tableName}\" SET ", { total, next -> total + "${next.first}=?," } ) ) +
-                        "ad_client_id = ?, ad_org_id = ? WHERE ${tableName}_id = ? RETURNING ${tableName}_id;";
+                ( fields.fold( "UPDATE \"${tableName_lowerCase}\" SET ", { total, next -> total + "${next.first}=?," } ) ) +
+                        "ad_client_id = ?, ad_org_id = ? WHERE ${tableName_lowerCase}_id = ? RETURNING ${tableName}_id;";
 
         System.out.println( "SQL:$sql, ID:$id" );
 
