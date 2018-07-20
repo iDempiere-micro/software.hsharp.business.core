@@ -168,6 +168,7 @@ class DataService : IDataService {
     override fun updateData(
             connection: Connection,
             tableName: String,
+            table: IDataTable?,
             id: Int,
             fields: MutableList<Pair<String, Any>>,
             anonymous_call : Boolean
@@ -183,7 +184,7 @@ class DataService : IDataService {
         val tableName_lowerCase = tableName.toLowerCase()
 
         val sql =
-                ( fields.fold( "UPDATE \"${tableName_lowerCase}\" SET ", { total, next -> total + "${next.first}=?," } ) ) +
+                ( fields.fold( "UPDATE \"${tableName_lowerCase}\" SET ", { total, next -> total + "${next.first}=${getTypeCast(next, table!!)}," } ) ) +
                         "ad_client_id = ?, ad_org_id = ? WHERE ${tableName_lowerCase}_id = ? RETURNING ${tableName}_id;";
 
         val statement = cnn.prepareStatement(sql)
