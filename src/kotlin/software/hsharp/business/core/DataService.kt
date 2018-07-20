@@ -108,8 +108,13 @@ class DataService : IDataService {
     override val name: String
         get() = "iDempiere Data Service"
 
-    private fun getType(next: Pair<String, Any>, table: IDataTable): String {
-        return table.columns.find({ it.columnName.toLowerCase() == next.first.toLowerCase() })!!.columnType
+    private fun getColumn(next: Pair<String, Any>, table: IDataTable): IDataColumn? {
+        return table.columns.find { it.columnName.toLowerCase() == next.first.toLowerCase() }
+    }
+
+    private fun getTypeCast(next: Pair<String, Any>, table: IDataTable): String {
+        val column = getColumn( next, table )
+        return if ( column == null ) { "?" } else "CAST(? AS ${column.columnType})"
     }
 
     override fun createData(
@@ -130,10 +135,10 @@ class DataService : IDataService {
         val tableName_lowerCase = tableName.toLowerCase()
 
         val sql =
-                ( fields.fold( "INSERT INTO \"${tableName_lowerCase}\" ( \"${tableName_lowerCase}_id\",", { total, next -> total + next.first + "," } ) ) +
+                ( fields.fold( "INSERT INTO \"${tableName_lowerCase}\" ( \"${tableName_lowerCase}_id\",") { total, next -> total + next.first + "," }) +
                         ( fields.fold(
-                                "ad_client_id, ad_org_id, updatedby, updated, createdby, created ) VALUES ( (SELECT COALESCE(MAX(\"${tableName_lowerCase}_id\"),0) + 1 FROM \"${tableName_lowerCase}\" ),",
-                                { total, next -> "${total}CAST(? AS ${getType(next, table!!)})," } ) ) + " ?, ?, ?, statement_timestamp(), ?, statement_timestamp()) RETURNING ${tableName_lowerCase}_id;";
+                                "ad_client_id, ad_org_id, updatedby, updated, createdby, created ) VALUES ( (SELECT COALESCE(MAX(\"${tableName_lowerCase}_id\"),0) + 1 FROM \"${tableName_lowerCase}\" ),"
+                        ) { total, next -> "${total}${getTypeCast(next, table!!)}," }) + " ?, ?, ?, statement_timestamp(), ?, statement_timestamp()) RETURNING ${tableName_lowerCase}_id;";
 
         val statement = cnn.prepareStatement(sql)
         fields.forEachIndexed { index, value ->
