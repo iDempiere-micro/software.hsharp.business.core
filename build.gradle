@@ -20,7 +20,7 @@ dependencies {
     compile files('../software.hsharp.core.models/bin')
 }
 buildscript {
-    ext.kotlin_version = '1.2.50'
+    ext.kotlin_version = '1.2.41'
     repositories {
         mavenCentral()
     }
