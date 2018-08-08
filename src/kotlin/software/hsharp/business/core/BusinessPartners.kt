@@ -16,7 +16,6 @@ import java.util.*
 import software.hsharp.business.models.IBusinessPartnerLocation
 import software.hsharp.business.models.ILocation
 import software.hsharp.business.services.*
-import software.hsharp.core.services.IServiceRegisterRegister
 
 object c_bpartner : IntIdTable(columnName = "c_bpartner_id") {
     val ad_client_id = integer("ad_client_id")
@@ -26,7 +25,7 @@ object c_bpartner : IntIdTable(columnName = "c_bpartner_id") {
     val createdby = integer("createdby")
     val updated = datetime("updated")
     val updatedby = integer("updatedby")
-    val c_bpartner_uu= varchar("c_bpartner_uu", 36)
+    val c_bpartner_uu = varchar("c_bpartner_uu", 36)
 
     val name = varchar("name", 60)
     val searchKey = varchar("value", 60)
@@ -51,34 +50,36 @@ open class BusinessPartnerModel(id: EntityID<Int>) : IntEntity(id) {
 }
 
 data class Location(
-        override val CountryName: String?,
-        override val City: String?,
-        override val Postal: String?,
-        override val Address1: String?,
-        override val Address2: String?,
-        override val Address3: String?,
-        override val Address4: String?,
-        override val Address5: String?) : ILocation
+    override val CountryName: String?,
+    override val City: String?,
+    override val Postal: String?,
+    override val Address1: String?,
+    override val Address2: String?,
+    override val Address3: String?,
+    override val Address4: String?,
+    override val Address5: String?
+) : ILocation
 
 data class BusinessPartnerLocation(
-        override val Location: ILocation
+    override val Location: ILocation
 ) : IBusinessPartnerLocation
 
-data class BusinessPartner( 
-    override val Key : Int, 
-    override val name : String, 
-    override val value : String,
-    override val Locations: Array<IBusinessPartnerLocation>    
-     ) : IBusinessPartner {
+data class BusinessPartner(
+    override val Key: Int,
+    override val name: String,
+    override val value: String,
+    override val Locations: Array<IBusinessPartnerLocation>
+) : IBusinessPartner {
     override val ID: String
-        get() = ""+Key
+        get() = "" + Key
 }
 
 data class BusinessPartnersResult(
-        override val businessPartners : Array<IBusinessPartner>,
-        override val __paging: IPaging?) : IBusinessPartnersResult {
+    override val businessPartners: Array<IBusinessPartner>,
+    override val __paging: IPaging?
+) : IBusinessPartnersResult {
     companion object {
-        val metadata: IDataSource? get () {
+        val metadata: IDataSource? get() {
             /*return DataTable(
                     tableName = "c_bpartner",
                     columns = arrayOf(),
@@ -96,8 +97,9 @@ data class BusinessPartnersResult(
 }
 
 data class BusinessPartnerResult(
-        override val businessPartner : IBusinessPartner?,
-        override val __paging: IPaging?) : IBusinessPartnerResult {
+    override val businessPartner: IBusinessPartner?,
+    override val __paging: IPaging?
+) : IBusinessPartnerResult {
     override val __metadata: IDataSource?
         get() = BusinessPartnersResult.metadata
 }
@@ -108,7 +110,7 @@ class BusinessPartners : iDempiereEntities<I_C_BPartner, IBusinessPartner>(), IB
         get() = "Business Partners Service"
 
     companion object {
-        public fun convertLocations( t: I_C_BPartner ) : Array<IBusinessPartnerLocation> {
+        public fun convertLocations(t: I_C_BPartner): Array<IBusinessPartnerLocation> {
             return t.locations.map {
                 BusinessPartnerLocation(
                         Location(
@@ -126,7 +128,6 @@ class BusinessPartners : iDempiereEntities<I_C_BPartner, IBusinessPartner>(), IB
         }
     }
 
-
     override val tableName: String
         get() = "c_bpartner"
 
@@ -135,7 +136,7 @@ class BusinessPartners : iDempiereEntities<I_C_BPartner, IBusinessPartner>(), IB
     }
 
     override fun convertToDTO(t: I_C_BPartner): IBusinessPartner {
-        val result : BusinessPartner =
+        val result: BusinessPartner =
                 BusinessPartner(
                         t.c_BPartner_ID,
                         t.name,
@@ -151,11 +152,11 @@ class BusinessPartners : iDempiereEntities<I_C_BPartner, IBusinessPartner>(), IB
 
     override fun getBusinessPartnerById(id: Int): IBusinessPartnerResult {
         val result = getById(id)
-        return BusinessPartnerResult(result, if(result==null) {
+        return BusinessPartnerResult(result, if (result == null) {
             Paging(0)
         } else {
             Paging(1)
-        } )
+        })
     }
 }
 
@@ -163,13 +164,12 @@ class BusinessPartners : iDempiereEntities<I_C_BPartner, IBusinessPartner>(), IB
 class BusinessPartnersRegisterHolder {
     companion object {
         var LoginServiceRegister: IBusinessPartnersServiceRegister? = null
-        var loginManager : BusinessPartners = BusinessPartners()
+        var loginManager: BusinessPartners = BusinessPartners()
     }
 
     @Reference
     fun setLoginServiceRegister(loginServiceRegister: IBusinessPartnersServiceRegister) {
         LoginServiceRegister = loginServiceRegister
-        loginServiceRegister.registerService( loginManager )
+        loginServiceRegister.registerService(loginManager)
     }
-
 }

@@ -8,8 +8,7 @@ import java.util.*
 
 @Component
 class UserService : IUserServiceImpl {
-    override fun getUser(ctx: Properties, loginName: String): IUser {
-        return MUser.get (ctx, loginName)
+    override fun getUser(ctx: Properties, loginName: String): IUser? {
+        return MUser.get(ctx, loginName)
     }
-
 }

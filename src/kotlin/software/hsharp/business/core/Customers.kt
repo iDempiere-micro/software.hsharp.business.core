@@ -19,7 +19,6 @@ import software.hsharp.core.models.IDataSource
 import software.hsharp.core.models.IPaging
 import software.hsharp.business.models.IBusinessPartnerLocation
 import software.hsharp.business.services.*
-import software.hsharp.core.services.IServiceRegisterRegister
 import java.util.*
 
 object crm_customer_category : IntIdTable(columnName = "customer_category_id") {
@@ -30,7 +29,7 @@ object crm_customer_category : IntIdTable(columnName = "customer_category_id") {
     val createdby = integer("createdby")
     val updated = datetime("updated")
     val updatedby = integer("updatedby")
-    val customer_category_uu= varchar("customer_category_uu", 36)
+    val customer_category_uu = varchar("customer_category_uu", 36)
 
     val name = varchar("name", 60)
     val searchKey = varchar("value", 60)
@@ -67,20 +66,21 @@ class CustomerModel(id: EntityID<Int>) : BusinessPartnerModel(id) {
 }
 
 data class Customer(
-        override val Key : Int,
-        override val name : String,
-        override val value : String,
-        override val categories : Array<ICategory>,
-        override val Locations: Array<IBusinessPartnerLocation>    
- ) : ICustomer {
+    override val Key: Int,
+    override val name: String,
+    override val value: String,
+    override val categories: Array<ICategory>,
+    override val Locations: Array<IBusinessPartnerLocation>
+) : ICustomer {
     override val ID: String
-        get() = ""+Key
+        get() = "" + Key
 }
 data class CustomersResult(
-        override val customers : Array<ICustomer>,
-        override val __paging: IPaging?) : ICustomersResult {
+    override val customers: Array<ICustomer>,
+    override val __paging: IPaging?
+) : ICustomersResult {
     companion object {
-        val metadata: IDataSource? get () {
+        val metadata: IDataSource? get() {
             return null
         }
     }
@@ -89,8 +89,9 @@ data class CustomersResult(
         get() = CustomersResult.metadata
 }
 data class CustomerResult(
-        override val customer : ICustomer?,
-        override val __paging: IPaging? ) : ICustomerResult {
+    override val customer: ICustomer?,
+    override val __paging: IPaging?
+) : ICustomerResult {
     override val __metadata: IDataSource?
         get() = CustomersResult.metadata
 }
@@ -100,12 +101,12 @@ class Customers : ICustomersImpl {
     override val name: String
         get() = "Customers Service"
 
-    private fun convert(it:CustomerModel, ctx: Properties) : Customer {
+    private fun convert(it: CustomerModel, ctx: Properties): Customer {
         val bpartner = MBPartner.get(ctx, it.id.value)
-        return Customer( 
-            it.id.value, it.name, it.searchKey, 
-            it.categories.map { Category( it.category_Id.value, it.name ) as ICategory }.toTypedArray(),
-                BusinessPartners.convertLocations( bpartner ) )
+        return Customer(
+            it.id.value, it.name, it.searchKey,
+            it.categories.map { Category(it.category_Id.value, it.name) as ICategory }.toTypedArray(),
+                BusinessPartners.convertLocations(bpartner))
     }
 
     override fun getAllCustomers(): ICustomersResult {
@@ -114,7 +115,7 @@ class Customers : ICustomersImpl {
         val AD_Client_ID = Env.getAD_Client_ID(ctx)
         var result = listOf<ICustomer>()
 
-        Database.connect( { DB.getConnectionRO() } )
+        Database.connect({ DB.getConnectionRO() })
         transaction {
             result =
                 CustomerModel.find {
@@ -122,32 +123,32 @@ class Customers : ICustomersImpl {
                             .and(c_bpartner.ad_org_id eq AD_Org_ID)
                             .and(c_bpartner.iscustomer eq "Y")
                 }.map {
-                    convert(it, ctx )
+                    convert(it, ctx)
                 }
         }
 
-        return CustomersResult( result.toTypedArray(), Paging(result.count()))
+        return CustomersResult(result.toTypedArray(), Paging(result.count()))
     }
 
     override fun getCustomerById(id: Int): ICustomerResult {
         val ctx = Env.getCtx()
         val AD_Org_ID = Env.getAD_Org_ID(ctx)
         val AD_Client_ID = Env.getAD_Client_ID(ctx)
-        var result : ICustomer? = null
+        var result: ICustomer? = null
 
-        Database.connect( { DB.getConnectionRO() } )
+        Database.connect({ DB.getConnectionRO() })
         transaction {
             result =
-                    CustomerModel.find{ (c_bpartner.ad_client_id eq AD_Client_ID)
-                            .and( c_bpartner.ad_org_id eq AD_Org_ID )
-                            .and( c_bpartner.iscustomer eq "Y" )
-                            .and( c_bpartner.id eq id )
+                    CustomerModel.find { (c_bpartner.ad_client_id eq AD_Client_ID)
+                            .and(c_bpartner.ad_org_id eq AD_Org_ID)
+                            .and(c_bpartner.iscustomer eq "Y")
+                            .and(c_bpartner.id eq id)
                     }
                     .map {
                         convert(it, ctx)
                     }.firstOrNull { MBPartner.get(ctx, it.Key) != null }
         }
-        return CustomerResult(result, if(result==null) {
+        return CustomerResult(result, if (result == null) {
             Paging(0)
         } else {
             Paging(1)
@@ -160,7 +161,7 @@ class Customers : ICustomersImpl {
         val AD_Client_ID = Env.getAD_Client_ID(ctx)
         var result = listOf<ICustomer>()
 
-        Database.connect( { DB.getConnectionRO() } )
+        Database.connect({ DB.getConnectionRO() })
         transaction {
             result =
                     CustomerModel.find {
@@ -172,22 +173,20 @@ class Customers : ICustomersImpl {
                     }.filter { it.categories.intersect(categories.toList()).isNotEmpty() }
         }
 
-        return CustomersResult( result.toTypedArray(), Paging(result.count()))
+        return CustomersResult(result.toTypedArray(), Paging(result.count()))
     }
-
 }
 
 @Component
 class CustomersRegisterHolder {
     companion object {
         var CustomersServiceRegister: ICustomersServiceRegister? = null
-        var customers : Customers = Customers()
+        var customers: Customers = Customers()
     }
 
     @Reference
     fun setCustomersServiceRegister(customersServiceRegister: ICustomersServiceRegister) {
         CustomersServiceRegister = customersServiceRegister
-        customersServiceRegister.registerService( customers )
+        customersServiceRegister.registerService(customers)
     }
-
 }
