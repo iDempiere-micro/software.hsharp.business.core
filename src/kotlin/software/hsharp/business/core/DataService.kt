@@ -10,7 +10,6 @@ import org.compiere.process.ProcessInfoParameter
 import org.compiere.process.ProcessUtil
 import org.idempiere.common.util.DB
 import org.idempiere.common.util.Env
-import org.idempiere.common.util.Trx
 import org.osgi.service.component.annotations.Component
 import org.osgi.service.component.annotations.Reference
 import software.hsharp.core.models.*
@@ -102,8 +101,7 @@ class DataService : IDataService {
         processInfo.aD_User_ID = ad_User_ID
         processInfo.parameter = parameters.toTypedArray()
         processInfo.className = procName
-        val m_trx = Trx.get(Trx.createTrxName("ExecuteJavaProcess"), true)
-        val success = ProcessUtil.startJavaProcess(ctx, processInfo, m_trx, false)
+        val success = ProcessUtil.startJavaProcess(ctx, processInfo, null, true)
         ExecuteJavaProcessResult(processInfo.summary, success, processInfo.serializableObject)
         val mapper = ObjectMapper().registerModule(KotlinModule())
         return mapper.writeValueAsString(processInfo.serializableObject)

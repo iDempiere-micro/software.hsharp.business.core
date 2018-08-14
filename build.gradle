@@ -8,9 +8,6 @@ dependencies {
     compile project(':software.hsharp.business.models')
     compile files('../software.hsharp.business.models/bin')
 
-    compile project(':org.compiere.crm')
-    compile files('../org.compiere.crm/bin')
-
     compile project(':org.compiere.process')
     compile files('../org.compiere.process/bin')
 
