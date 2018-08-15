@@ -18,6 +18,7 @@ import software.hsharp.core.models.IDataSource
 import software.hsharp.core.models.IPaging
 import software.hsharp.business.models.IBusinessPartnerLocation
 import software.hsharp.business.services.*
+import java.math.BigDecimal
 import java.util.*
 
 data class Customer(
@@ -25,7 +26,8 @@ data class Customer(
     override val name: String,
     override val value: String,
     override val categories: Array<ICategory>,
-    override val Locations: Array<IBusinessPartnerLocation>
+    override val Locations: Array<IBusinessPartnerLocation>,
+    override val flatDiscount: BigDecimal
 ) : ICustomer {
     override val ID: String
         get() = "" + Key

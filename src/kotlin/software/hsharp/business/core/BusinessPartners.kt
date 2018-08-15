@@ -8,6 +8,7 @@ import software.hsharp.core.models.IPaging
 import software.hsharp.business.models.IBusinessPartnerLocation
 import software.hsharp.business.models.ILocation
 import software.hsharp.business.services.*
+import java.math.BigDecimal
 
 data class Location(
     override val CountryName: String?,
@@ -32,7 +33,8 @@ data class BusinessPartner(
     override val Key: Int,
     override val name: String,
     override val value: String,
-    override val Locations: Array<IBusinessPartnerLocation>
+    override val Locations: Array<IBusinessPartnerLocation>,
+    override val flatDiscount: BigDecimal
 ) : IBusinessPartner {
     override val ID: String
         get() = "" + Key

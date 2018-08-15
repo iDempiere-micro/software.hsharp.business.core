@@ -180,7 +180,6 @@ class DataService : IDataService {
         val ctx = Env.getCtx()
         val ad_Client_ID = Env.getAD_Client_ID(ctx)
         val ad_Org_ID = Env.getAD_Org_ID(ctx)
-        val ad_User_ID = Env.getAD_User_ID(ctx)
         val cnn = DB.getConnectionRW()
 
         val tableName_lowerCase = tableName.toLowerCase()
